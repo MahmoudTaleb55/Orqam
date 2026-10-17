@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { apiRequest, queryClient, ApiError } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLocale } from "@/contexts/locale-context";
 import { useT } from "@/i18n/dict";
@@ -13,11 +13,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { WriteGuard } from "@/components/auth/write-guard";
-import { Boxes, Pencil, Plus } from "lucide-react";
+import { Boxes, Pencil, Plus, Trash2, Loader2 } from "lucide-react";
 import { ListSkeleton } from "@/components/feedback/list-skeleton";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { useFormatMoney } from "@/lib/format";
@@ -60,6 +70,7 @@ export default function InventoryItemsPage() {
   const { toast } = useToast();
   const [editing, setEditing] = useState<Product | null>(null);
   const [creating, setCreating] = useState(false);
+  const [deleting, setDeleting] = useState<Product | null>(null);
 
   const { data: products, isLoading } = useQuery<Product[]>({ queryKey: ["/api/sales/products"] });
   const { data: categories } = useQuery<InventoryCategory[]>({ queryKey: ["/api/inventory/categories"] });
@@ -157,6 +168,21 @@ export default function InventoryItemsPage() {
     onError: (e: unknown) => toast({ variant: "destructive", description: t(mapErrorKey(e)) }),
   });
 
+  const deleteMut = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/sales/products/${id}`);
+    },
+    onSuccess: () => {
+      invalidateProductCaches();
+      setDeleting(null);
+      toast({ description: t("toast_deleted") });
+    },
+    onError: (e: unknown) => {
+      const inUse = e instanceof ApiError && e.status === 409;
+      toast({ variant: "destructive", description: inUse ? t("inv_delete_item_in_use") : t(mapErrorKey(e)) });
+    },
+  });
+
   return (
     <div className="space-y-6 p-6" data-testid="page-inventory-items">
       <div className="flex items-center justify-between">
@@ -214,6 +240,18 @@ export default function InventoryItemsPage() {
                         >
                           <Pencil className="h-4 w-4 me-1" />
                           {t("inv_edit")}
+                        </Button>
+                      </WriteGuard>
+                      <WriteGuard>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-muted-foreground hover:text-destructive"
+                          onClick={() => setDeleting(p)}
+                          aria-label={t("inv_delete")}
+                          data-testid={`button-delete-item-${p.id}`}
+                        >
+                          <Trash2 className="h-4 w-4" />
                         </Button>
                       </WriteGuard>
                     </TableCell>
@@ -569,6 +607,29 @@ export default function InventoryItemsPage() {
           </Form>
         </DialogContent>
       </Dialog>
+
+      <AlertDialog open={deleting !== null} onOpenChange={(o) => !o && setDeleting(null)}>
+        <AlertDialogContent data-testid="dialog-delete-item">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t("inv_delete_item_title")}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {deleting ? (isAr ? deleting.nameAr : (deleting.nameEn || deleting.nameAr)) : ""} — {t("inv_delete_item_desc")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel data-testid="button-cancel-delete-item">{t("inv_cancel")}</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              disabled={deleteMut.isPending}
+              onClick={(ev) => { ev.preventDefault(); if (deleting) deleteMut.mutate(deleting.id); }}
+              data-testid="button-confirm-delete-item"
+            >
+              {deleteMut.isPending && <Loader2 className="h-4 w-4 animate-spin me-2" />}
+              {deleteMut.isPending ? t("inv_deleting") : t("inv_delete")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

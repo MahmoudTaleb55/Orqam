@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { apiRequest, queryClient, ApiError } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLocale } from "@/contexts/locale-context";
 import { useT } from "@/i18n/dict";
@@ -12,9 +12,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableHeader, TableHead, TableBody, TableRow, TableCell } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { WriteGuard } from "@/components/auth/write-guard";
-import { Plus, Tag } from "lucide-react";
+import { Plus, Tag, Trash2, Loader2 } from "lucide-react";
 import { ListSkeleton } from "@/components/feedback/list-skeleton";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { insertInventoryCategorySchema, type InventoryCategory } from "@shared/schema";
@@ -28,6 +38,7 @@ export default function InventoryCategoriesPage() {
   const t = useT();
   const { toast } = useToast();
   const [createOpen, setCreateOpen] = useState(false);
+  const [deleting, setDeleting] = useState<InventoryCategory | null>(null);
 
   const { data: rows, isLoading } = useQuery<InventoryCategory[]>({
     queryKey: ["/api/inventory/categories"],
@@ -49,6 +60,21 @@ export default function InventoryCategoriesPage() {
       toast({ description: t("toast_saved") });
     },
     onError: (e: unknown) => toast({ variant: "destructive", description: t(mapErrorKey(e)) }),
+  });
+
+  const deleteMut = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/inventory/categories/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/inventory/categories"] });
+      setDeleting(null);
+      toast({ description: t("toast_deleted") });
+    },
+    onError: (e: unknown) => {
+      const inUse = e instanceof ApiError && e.status === 409;
+      toast({ variant: "destructive", description: inUse ? t("inv_delete_category_in_use") : t(mapErrorKey(e)) });
+    },
   });
 
   return (
@@ -91,12 +117,27 @@ export default function InventoryCategoriesPage() {
               <TableHeader><TableRow>
                 <TableHead>{t("inv_name_ar")}</TableHead>
                 <TableHead>{t("inv_name_en")}</TableHead>
+                <TableHead className="text-end">{t("inv_actions")}</TableHead>
               </TableRow></TableHeader>
               <TableBody>
                 {(rows ?? []).map((r) => (
                   <TableRow key={r.id} data-testid={`row-category-${r.id}`}>
                     <TableCell>{r.nameAr}</TableCell>
                     <TableCell>{r.nameEn}</TableCell>
+                    <TableCell className="text-end">
+                      <WriteGuard>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-muted-foreground hover:text-destructive"
+                          onClick={() => setDeleting(r)}
+                          aria-label={t("inv_delete")}
+                          data-testid={`button-delete-category-${r.id}`}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </WriteGuard>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -104,6 +145,29 @@ export default function InventoryCategoriesPage() {
           )}
         </CardContent>
       </Card>
+
+      <AlertDialog open={deleting !== null} onOpenChange={(o) => !o && setDeleting(null)}>
+        <AlertDialogContent data-testid="dialog-delete-category">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t("inv_delete_category_title")}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {deleting ? (isAr ? deleting.nameAr : (deleting.nameEn || deleting.nameAr)) : ""} — {t("inv_delete_category_desc")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel data-testid="button-cancel-delete-category">{t("inv_cancel")}</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              disabled={deleteMut.isPending}
+              onClick={(ev) => { ev.preventDefault(); if (deleting) deleteMut.mutate(deleting.id); }}
+              data-testid="button-confirm-delete-category"
+            >
+              {deleteMut.isPending && <Loader2 className="h-4 w-4 animate-spin me-2" />}
+              {deleteMut.isPending ? t("inv_deleting") : t("inv_delete")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
