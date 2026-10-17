@@ -61,18 +61,16 @@ const JOB_DETAILS: Record<string, {
       "راتب تنافسيّ وفق مستوى الخبرة",
       "عمل عن بُعد بالكامل مع اجتماعات متزامنة محدودة",
       "ميزانيّة تطوير سنويّة للتعلّم والمؤتمرات",
-      "أسهم في الشركة لجميع الموظّفين",
       "إجازة سنويّة سخيّة + أيّام صحّة نفسيّة",
     ],
     benefitsEn: [
       "Competitive salary based on experience level",
       "Fully remote work with limited synchronous meetings",
       "Annual learning & conference budget",
-      "Equity for all employees",
       "Generous PTO + mental health days",
     ],
-    salaryAr: "$٨٠,٠٠٠ – $١٣٠,٠٠٠ سنويّاً (حسب الخبرة)",
-    salaryEn: "$80,000 – $130,000/year (experience-based)",
+    salaryAr: "دور توضيحيّ — نموذج أوّليّ، وليس إعلان توظيف حقيقيّ",
+    salaryEn: "Illustrative role — prototype, not a live posting",
   },
   "frontend-engineer": {
     responsibilitiesAr: [
@@ -119,18 +117,16 @@ const JOB_DETAILS: Record<string, {
       "راتب تنافسيّ وفق مستوى الخبرة",
       "عمل عن بُعد بالكامل",
       "ميزانيّة تطوير سنويّة",
-      "أسهم في الشركة",
       "إجازة مرنة",
     ],
     benefitsEn: [
       "Competitive salary based on experience",
       "Fully remote work",
       "Annual development budget",
-      "Company equity",
       "Flexible PTO",
     ],
-    salaryAr: "$٧٠,٠٠٠ – $١٢٠,٠٠٠ سنويّاً",
-    salaryEn: "$70,000 – $120,000/year",
+    salaryAr: "دور توضيحيّ — نموذج أوّليّ، وليس إعلان توظيف حقيقيّ",
+    salaryEn: "Illustrative role — prototype, not a live posting",
   },
   "accounting-expert": {
     responsibilitiesAr: [
@@ -183,8 +179,8 @@ const JOB_DETAILS: Record<string, {
       "Rare opportunity to shape an international accounting product from the inside",
       "Conference and professional membership budget",
     ],
-    salaryAr: "$٩٠,٠٠٠ – $١٤٠,٠٠٠ سنويّاً",
-    salaryEn: "$90,000 – $140,000/year",
+    salaryAr: "دور توضيحيّ — نموذج أوّليّ، وليس إعلان توظيف حقيقيّ",
+    salaryEn: "Illustrative role — prototype, not a live posting",
   },
   "customer-success": {
     responsibilitiesAr: [
@@ -227,18 +223,18 @@ const JOB_DETAILS: Record<string, {
     ],
     benefitsAr: [
       "راتب تنافسيّ + مكافآت مرتبطة بالأداء",
-      "عمل مختلط (دبي أو الرياض)",
+      "عمل عن بُعد (نموذج أوّليّ)",
       "فرص تطوير مهنيّ واضحة",
       "فريق متعدّد الجنسيّات وبيئة عمل داعمة",
     ],
     benefitsEn: [
       "Competitive salary + performance-linked bonuses",
-      "Hybrid work (Dubai or Riyadh)",
+      "Remote work (prototype)",
       "Clear professional development opportunities",
       "Multinational team and supportive work environment",
     ],
-    salaryAr: "$٥٠,٠٠٠ – $٨٠,٠٠٠ سنويّاً + مكافآت",
-    salaryEn: "$50,000 – $80,000/year + bonus",
+    salaryAr: "دور توضيحيّ — نموذج أوّليّ، وليس إعلان توظيف حقيقيّ",
+    salaryEn: "Illustrative role — prototype, not a live posting",
   },
 }
 
@@ -377,8 +373,8 @@ export default function JobDetailPage() {
                   </h3>
                   <p className="text-small text-muted-foreground leading-relaxed">
                     {ar
-                      ? "سيتواصل معك فريقنا خلال ٣–٥ أيّام عمل."
-                      : "Our team will get back to you within 3–5 business days."}
+                      ? "هذا نموذج أوّليّ — الطلبات غير مُراقَبة."
+                      : "This is a prototype — applications aren't monitored."}
                   </p>
                 </div>
               ) : (
@@ -458,8 +454,8 @@ export default function JobDetailPage() {
 
                     <p className="text-caption text-muted-foreground text-center">
                       {ar
-                        ? "نردّ على جميع الطلبات خلال ٣–٥ أيّام عمل."
-                        : "We respond to all applications within 3–5 business days."}
+                        ? "هذا نموذج أوّليّ — الطلبات غير مُراقَبة."
+                        : "This is a prototype — applications aren't monitored."}
                     </p>
                   </form>
                 </>

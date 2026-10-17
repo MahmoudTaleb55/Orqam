@@ -63,7 +63,7 @@ export default function SecurityPage() {
             : "We welcome responsible disclosure from security researchers. Email us and we'll respond as soon as we can."}
         </p>
         <a
-          href="mailto:security@smartacc.io"
+          href="mailto:hello@orqam.example"
           className="inline-flex items-center h-10 px-6 rounded-full bg-primary text-primary-foreground text-small font-semibold border border-primary-border hover:opacity-90 transition-opacity"
         >
           {ar ? "أبلغ عن ثغرة" : "Report a vulnerability"}

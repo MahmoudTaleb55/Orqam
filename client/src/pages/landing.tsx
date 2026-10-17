@@ -45,7 +45,7 @@ function getCopy(locale: Locale) {
       signIn: ar ? "تسجيل الدخول" : "Sign in",
     },
     hero: {
-      tag: ar ? "الإصدار ٥٫٢ · ٢٤٬٠٠٠ قيد مُسجَّل اليوم" : "v5.2 · 24,000 entries posted today",
+      tag: ar ? "نموذج أوّليّ · محاسبة وفق IFRS" : "Prototype · IFRS-first accounting",
       h1a: ar ? "محاسبُك. مُدقِّقُك." : "Your bookkeeper.",
       h1b: ar ? "مديرُك المالي." : "Your auditor. Your CFO.",
       h1c: ar ? "في ذكاءٍ واحدٍ — لا ينام." : "Replaced by one AI that doesn't sleep.",
@@ -63,7 +63,7 @@ function getCopy(locale: Locale) {
       bullets: ar
         ? ["بدون بطاقة ائتمان", "١٤ يوماً مجاناً، بكلّ المزايا", "جاهز خلال ٥ دقائق"]
         : ["No credit card", "Full 14-day trial", "Set up in 5 minutes"],
-      certBadge: ar ? "مُوافِق لـ IFRS · SOC 2 Type II" : "IFRS-compliant · SOC 2 Type II",
+      certBadge: ar ? "مبنيّ وفق مبادئ IFRS" : "Built to IFRS principles",
       countriesLabel: ar ? "يعمل في" : "Live in",
       countries: [
         { f: "🇸🇦", n: ar ? "السعوديّة" : "KSA" },
@@ -103,19 +103,19 @@ function getCopy(locale: Locale) {
       pillars: ar ? [
         { l: "فوترة إلكترونيّة عالميّة", c: "EN 16931 · PEPPOL · UBL — معايير دوليّة", k: "shield" },
         { l: "IFRS 15 · 16 · 9", c: "إيراد · إيجار · أدوات ماليّة", k: "scale" },
-        { l: "GDPR · PDPL · CCPA", c: "خصوصيّة بمعيار التحالف الأوروبيّ والأمريكيّ", k: "lock" },
-        { l: "+٣٠ هيئة تنظيميّة", c: "IASB · SEC · FCA · PCAOB · FTA · ETA · CBB · ISTD", k: "globe" },
+        { l: "الخصوصيّة بالتصميم", c: "مبنيّ وفق مبادئ GDPR — وليست شهادة حاصلين عليها", k: "lock" },
+        { l: "IFRS أوّلاً", c: "معايير التقارير الدوليّة في الأساس", k: "globe" },
       ] : [
         { l: "Global e-invoicing", c: "EN 16931 · PEPPOL · UBL — open standards", k: "shield" },
         { l: "IFRS 15 · 16 · 9", c: "Revenue · leases · instruments", k: "scale" },
-        { l: "GDPR · PDPL · CCPA", c: "EU, US, and MENA-grade privacy posture", k: "lock" },
-        { l: "30+ regulators covered", c: "IASB · SEC · FCA · PCAOB · FTA · ETA · CBB · ISTD", k: "globe" },
+        { l: "Privacy by design", c: "Built with GDPR principles in mind — not a held certification", k: "lock" },
+        { l: "IFRS-first", c: "International reporting standards at the core", k: "globe" },
       ],
       metrics: [
-        { v: ar ? "٢.٤ مليار+" : "$2.4B+",  l: ar ? "قيمة قيود مُسجَّلة" : "in posted entries" },
-        { v: ar ? "٩٩.٩٩٪"     : "99.99%",  l: ar ? "جاهزيّة المنصّة" : "platform uptime" },
-        { v: "< 120ms",                       l: ar ? "زمن استجابة API" : "API latency" },
-        { v: "SOC 2",                         l: ar ? "Type II · معتمد" : "Type II audited", mono: true },
+        { v: ar ? "قيد مزدوج" : "Double-entry",  l: ar ? "ترحيل متوازن وذرّيّ" : "balanced & atomic postings" },
+        { v: ar ? "IFRS أوّلاً" : "IFRS-first",  l: ar ? "قوائم تُولَّد وفق المعيار" : "statements generated to standard" },
+        { v: ar ? "ذكاء من جهة الخادم" : "Server-side AI", l: ar ? "المفاتيح لا تصل المتصفّح" : "keys never reach the browser" },
+        { v: ar ? "عزل RLS" : "RLS isolation",   l: ar ? "فصل بيانات لكلّ مساحة عمل" : "per-workspace data separation" },
       ],
     },
     why: {
@@ -335,8 +335,8 @@ function getCopy(locale: Locale) {
       eyebrow: ar ? "التكاملات" : "Integrations",
       title: ar ? "متّصلٌ بكلِّ ما تستخدمُه شركتُك بالفعل." : "Plugs into the stack your business already runs on.",
       lead: ar
-        ? "هيئات تنظيميّة عالميّة، بنوك دوليّة، منصّات تجارة ومدفوعات في كلّ منطقة — كلّها مربوطة من اليوم الأوّل، بلا وسطاء ولا تحويلات يدويّة."
-        : "Global regulators, international banks, commerce platforms, and payment rails across every region — wired in from day one. No middleware, no manual exports.",
+        ? "البنوك الدوليّة ومنصّات التجارة وقنوات المدفوعات المعروضة هنا محاكاة تجريبيّة، لا شراكات مباشرة. الفوترة الإلكترونيّة العالميّة والذكاء الاصطناعيّ من جهة الخادم هما التكاملان العاملان اليوم."
+        : "International banks, commerce platforms, and payment rails shown here are simulated demo connections, not live partnerships. Global e-invoicing and server-side AI are the integrations that run today.",
       groups: ar ? [
         {
           k: "compliance", t: "الامتثال والفوترة الدوليّة",
@@ -344,27 +344,27 @@ function getCopy(locale: Locale) {
             { n: "PEPPOL · EN 16931", b: "فوترة إلكترونيّة عالميّة" },
             { n: "IASB · IFRS",       b: "معايير دوليّة محدَّثة" },
             { n: "FTA · ETA · MoF",   b: "امتثال متعدّد الدول" },
-            { n: "FCA · SEC · PCAOB", b: "أسواق رأس المال" },
+            { n: "OpenAI · من جهة الخادم", b: "استخراج المستندات بالذكاء الاصطناعيّ (عامل)" },
           ],
         },
         {
-          k: "banks", t: "البنوك",
+          k: "banks", t: "البنوك (محاكاة تجريبيّة)",
           items: [
-            { n: "HSBC · Citi",        b: "Open Banking API" },
-            { n: "Emirates NBD",        b: "API مباشر" },
-            { n: "QNB · Mashreq",       b: "Bank feeds" },
-            { n: "SWIFT · SEPA",        b: "تحويلات دوليّة" },
+            { n: "HSBC · Citi",        b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "Emirates NBD",        b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "QNB · Mashreq",       b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "SWIFT · SEPA",        b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
           ],
         },
         {
-          k: "commerce", t: "التجارة والمدفوعات",
+          k: "commerce", t: "التجارة والمدفوعات (محاكاة تجريبيّة)",
           items: [
-            { n: "Stripe",    b: "مدفوعات عالميّة" },
-            { n: "Shopify",   b: "مزامنة طلبات + مخزون" },
-            { n: "PayPal",    b: "محفظة رقميّة دوليّة" },
-            { n: "Apple Pay", b: "بطاقات + iOS" },
-            { n: "WooCommerce", b: "Webhook لحظيّ" },
-            { n: "Amazon Pay", b: "تسوية البطاقات" },
+            { n: "Stripe",    b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "Shopify",   b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "PayPal",    b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "Apple Pay", b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "WooCommerce", b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
+            { n: "Amazon Pay", b: "محاكاة تجريبيّة — ليست اتّصالاً مباشراً" },
           ],
         },
       ] : [
@@ -374,40 +374,40 @@ function getCopy(locale: Locale) {
             { n: "PEPPOL · EN 16931", b: "Global e-invoice standards" },
             { n: "IASB · IFRS",       b: "International standards, live" },
             { n: "FTA · ETA · MoF",   b: "Multi-country compliance" },
-            { n: "FCA · SEC · PCAOB", b: "Capital market regulators" },
+            { n: "OpenAI · server-side", b: "AI document extraction (live)" },
           ],
         },
         {
-          k: "banks", t: "Banks",
+          k: "banks", t: "Banks (simulated demo)",
           items: [
-            { n: "HSBC · Citi",        b: "Open Banking API" },
-            { n: "Emirates NBD",        b: "Direct API" },
-            { n: "QNB · Mashreq",       b: "Bank feeds" },
-            { n: "SWIFT · SEPA",        b: "International transfers" },
+            { n: "HSBC · Citi",        b: "Simulated demo — not a live connection" },
+            { n: "Emirates NBD",        b: "Simulated demo — not a live connection" },
+            { n: "QNB · Mashreq",       b: "Simulated demo — not a live connection" },
+            { n: "SWIFT · SEPA",        b: "Simulated demo — not a live connection" },
           ],
         },
         {
-          k: "commerce", t: "Commerce & payments",
+          k: "commerce", t: "Commerce & payments (simulated demo)",
           items: [
-            { n: "Stripe",      b: "Global payments" },
-            { n: "Shopify",     b: "Order + inventory sync" },
-            { n: "PayPal",      b: "Digital wallet" },
-            { n: "Apple Pay",   b: "Cards + iOS" },
-            { n: "WooCommerce", b: "Live webhooks" },
-            { n: "Amazon Pay",  b: "Card settlement" },
+            { n: "Stripe",      b: "Simulated demo — not a live connection" },
+            { n: "Shopify",     b: "Simulated demo — not a live connection" },
+            { n: "PayPal",      b: "Simulated demo — not a live connection" },
+            { n: "Apple Pay",   b: "Simulated demo — not a live connection" },
+            { n: "WooCommerce", b: "Simulated demo — not a live connection" },
+            { n: "Amazon Pay",  b: "Simulated demo — not a live connection" },
           ],
         },
       ],
-      footnote: ar ? "وأكثر من ٤٠ تكاملاً جاهزاً عبر REST API و Webhooks." : "Plus 40+ ready integrations via REST API and webhooks.",
+      footnote: ar ? "التكاملات المعروضة بوصفها «محاكاة تجريبيّة» توضيحيّة؛ وليست اتّصالات مباشرة." : "Integrations shown as 'simulated demo' are illustrative; they are not live connections.",
       spineTitle: ar ? "طبقة الامتثال الموحّدة" : "Unified compliance layer",
-      spineSub:   ar ? "بين الجهات التنظيميّة وبنوكِك ومنافذ بيعك — مزامنةٌ حيّةٌ، بلا وسطاء."
-                    : "Between regulators, your banks, and your sales channels — live sync, no middlemen.",
+      spineSub:   ar ? "توضّح كيف يمكن أن تتّصل الجهات التنظيميّة والبنوك وقنوات البيع."
+                    : "Illustrates how regulators, banks, and sales channels would connect.",
       lanes: {
         regulators: ar ? "الجهات التنظيميّة"   : "Regulators",
         banks:      ar ? "البنوك"               : "Banks",
         commerce:   ar ? "تجارة ونقاط بيع"      : "Commerce & POS",
       },
-      live:       ar ? "متّصلٌ ومتزامن" : "Live & synced",
+      live:       ar ? "عرض تجريبيّ" : "Demo view",
     },
     pricing: {
       eyebrow: ar ? "الأسعار" : "Pricing",
@@ -583,15 +583,15 @@ function getCopy(locale: Locale) {
         ? "لا تنازل في الأمان. كلّ ما يلمسه الذكاء الاصطناعيّ يبقى داخل بيئتك، ولا يُستخدم لتدريب أيّ نموذج خارجيّ."
         : "No shortcuts on security. Everything the AI touches stays in your tenant — never used to train external models.",
       items: ar ? [
-        { t: "SOC 2 Type II", d: "تدقيق مستقلّ سنويّ على ضوابط الأمان والتوفّر والسرّيّة.", m: "Audited · Q1 2026" },
-        { t: "تشفير من الطرف إلى الطرف", d: "AES-256 للبيانات الساكنة، وTLS 1.3 لها أثناء النقل.", m: "AES-256 · TLS 1.3" },
+        { t: "عزل البيانات على مستوى قاعدة البيانات", d: "بيانات كلّ شركة معزولة بسياسات RLS في PostgreSQL، يُعاد تطبيقها عند كلّ إقلاع.", m: "RLS · لكلّ مساحة عمل" },
+        { t: "أسرار من جهة الخادم و TLS", d: "مفاتيح الواجهات وبيانات الاعتماد تبقى على الخادم، والحركة عبر TLS. التشفير المُدار للبيانات المخزّنة على خارطة الطريق.", m: "TLS · أسرار من جهة الخادم" },
         { t: "أثر تدقيق وفق IFRS", d: "كلّ قيد له ختم زمنيّ، ومستخدم، وسبب — لا يقبل التعديل.", m: "Immutable ledger" },
-        { t: "بيانات مقيمة في المنطقة", d: "خوادم في الرياض ودبيّ. الملكيّة لك، والتصدير متاح في أيّ لحظة.", m: "RUH · DXB · Bahrain" },
+        { t: "بياناتك ملكٌ لك", d: "التصدير متاح في أيّ لحظة؛ والذكاء الاصطناعيّ لا يُدرّب نماذج خارجيّة على مساحتك.", m: "Export anytime" },
       ] : [
-        { t: "SOC 2 Type II", d: "Annual independent audit of security, availability, and confidentiality controls.", m: "Audited · Q1 2026" },
-        { t: "End-to-end encryption", d: "AES-256 at rest, TLS 1.3 in transit.", m: "AES-256 · TLS 1.3" },
+        { t: "Database-level data isolation", d: "Each company's data is isolated with PostgreSQL Row-Level Security, re-applied on every server boot.", m: "RLS · per-workspace" },
+        { t: "Server-side secrets & TLS", d: "API keys and credentials stay on the server; traffic is served over TLS. Managed encryption at rest is on the roadmap.", m: "TLS · server-side keys" },
         { t: "IFRS audit trail", d: "Every entry timestamped, attributed, and reasoned — immutable.", m: "Immutable ledger" },
-        { t: "Region-resident data", d: "Servers in Riyadh and Dubai. You own your data; export anytime.", m: "RUH · DXB · Bahrain" },
+        { t: "You own your data", d: "Export anytime; the AI never trains external models on your tenant.", m: "Export anytime" },
       ],
     },
     useCases: {
@@ -603,8 +603,8 @@ function getCopy(locale: Locale) {
         {
           key: "founder", tab: "للمؤسّسين",
           headline: "اعرف أرقام شركتك بدقّة، في أيّ لحظة.",
-          quote: "«قبل محاسب ذكي، كنت أنتظر نهاية الشهر لأعرف: ربحنا أم خسرنا؟ اليوم أعرف الجواب قبل أن أوافق على المصروف.»",
-          author: "هاني الشمريّ · مؤسّس شركة لوجستيّات",
+          quote: "",
+          author: "",
           outcomes: [
             "نقاط صحّة ماليّة تتجدّد يوميّاً",
             "توقّع تدفّق نقديّ لـ ٩٠ يوماً قادمة",
@@ -615,8 +615,8 @@ function getCopy(locale: Locale) {
         {
           key: "accountant", tab: "للمحاسبين",
           headline: "وقتك للقرار، لا للترحيل.",
-          quote: "«الذكاء يكتب القيود، وأنا أراجع. وفّرت ١٢ ساعة في الأسبوع، والقوائم تخرج متوازنة من أوّل مرّة.»",
-          author: "د. سارة العتيبيّ · CPA · مكتب محاسبة",
+          quote: "",
+          author: "",
           outcomes: [
             "قيود مزدوجة آليّة، قابلة للمراجعة",
             "تطابق فوريّ بين الأستاذ العامّ والقوائم",
@@ -627,8 +627,8 @@ function getCopy(locale: Locale) {
         {
           key: "team", tab: "للفِرق الماليّة",
           headline: "فريق واحد. نظام واحد. مصدر حقيقة واحد.",
-          quote: "«كنّا نعمل على خمسة ملفّات Excel. اليوم يفتح المدير الماليّ الشاشة نفسها التي يفتحها المحلّل ومسؤول الرواتب.»",
-          author: "نورة العليّ · CFO · شركة تقنيّة",
+          quote: "",
+          author: "",
           outcomes: [
             "صلاحيّات بحسب الدور (RBAC) مع سجلّ نشاط",
             "موافقات متعدّدة المستويات على المدفوعات",
@@ -640,8 +640,8 @@ function getCopy(locale: Locale) {
         {
           key: "founder", tab: "For founders",
           headline: "Know your company's numbers, exactly, at any moment.",
-          quote: "\"Before Smart Accountant I waited for month-end to know if we made or lost money. Now I know before I approve the expense.\"",
-          author: "Hani Al-Shamri · Founder, logistics company",
+          quote: "",
+          author: "",
           outcomes: [
             "Daily-refreshed financial health score",
             "90-day cash forecast",
@@ -652,8 +652,8 @@ function getCopy(locale: Locale) {
         {
           key: "accountant", tab: "For accountants",
           headline: "Your time for decisions, not data entry.",
-          quote: "\"The AI writes the entries, I review. I save 12 hours a week — and statements balance the first time.\"",
-          author: "Dr. Sarah Al-Otaibi · CPA, accounting firm",
+          quote: "",
+          author: "",
           outcomes: [
             "Auto, reviewable double-entry bookkeeping",
             "Instant GL-to-statements reconciliation",
@@ -664,8 +664,8 @@ function getCopy(locale: Locale) {
         {
           key: "team", tab: "For finance teams",
           headline: "One team. One system. One source of truth.",
-          quote: "\"We worked across five Excel files. Now the CFO opens the same cockpit as the analyst and the payroll lead.\"",
-          author: "Noura Al-Ali · CFO, tech company",
+          quote: "",
+          author: "",
           outcomes: [
             "Role-based access (RBAC) with activity log",
             "Multi-level approvals on payments",
@@ -677,15 +677,14 @@ function getCopy(locale: Locale) {
     },
     compliance: {
       eyebrow: ar ? "تقويم الامتثال · ٢٠٢٦" : "Compliance Calendar · 2026",
-      title: ar ? "٣٠+ دولة. مئات المواعيد التنظيميّة. صفر فاتك." : "30+ countries. Hundreds of deadlines. Zero misses.",
+      title: ar ? "نمذِج تقويم كلّ جهة تنظيميّة، واحصل على تذكير قبل كلّ موعد." : "Model every regulator's calendar. Get reminded before each deadline.",
       lead: ar
-        ? "كلّ هيئة ضريبيّة في العالم لها لُغتها ومواعيدها — من HMRC إلى IRS إلى GAZT إلى IRAS. نتعقّبها جميعاً ونُذكِّرك قبلها بأسبوع. أنت لا تفتح هذه الصفحة — نحن نُغلقها لك."
-        : "Every regulator on earth speaks its own dialect of deadlines — from HMRC to IRS to GAZT to IRAS. We track them all and remind you a week ahead. You don't open this page — we close it for you.",
+        ? "التقويم مُصمَّم لتتبّع المواعيد وتذكيرك قبل كلّ موعد."
+        : "The calendar is designed to track deadlines and remind you ahead of each one.",
       stats: [
-        { v: ar ? "+٣٠٠" : "300+",  l: ar ? "موعداً تنظيميّاً نتعقّبه" : "compliance deadlines tracked" },
-        { v: ar ? "+٣٠"  : "30+",   l: ar ? "دولة مدعومة حول العالم" : "countries covered worldwide"  },
-        { v: ar ? "٧"    : "7",     l: ar ? "أيّام تذكير مسبق" : "days advance notice" },
-        { v: ar ? "٠"    : "0",     l: ar ? "غرامات تأخير عند عملائنا" : "late penalties at our clients" },
+        { v: ar ? "عديدة" : "Many",  l: ar ? "مواعيد تنظيميّة مُنمذَجة" : "regulatory deadlines modeled" },
+        { v: ar ? "٧ دول MENA + عالميّ" : "7 MENA + global",   l: ar ? "حزم قُطريّة مُنمذَجة" : "country packs modeled"  },
+        { v: ar ? "تذكيرات مسبقة" : "Advance reminders",     l: ar ? "قبل كلّ موعد" : "before each deadline" },
       ],
       months: ar
         ? ["ينا","فبر","مار","أبر","ماي","يون","يول","أغس","سبت","أكت","نوف","ديس"]
@@ -843,8 +842,8 @@ function getCopy(locale: Locale) {
       eyebrow: ar ? "داخل المنتج" : "Inside the product",
       title: ar ? "هذه ليست رسومات. هذه الشاشات نفسها." : "Not diagrams. These are the actual screens.",
       lead: ar
-        ? "كلّ وحدة هنا تعمل اليوم — عربيّةٌ في الجوهر منذ السطر الأوّل، ومُعتمدةٌ من الهيئات التنظيميّة في كلّ سوق نخدمه."
-        : "Every module here ships today — Arabic-first from the first line of code, certified by the regulators in every market we serve.",
+        ? "كلّ وحدة هنا تعمل اليوم — عربيّةٌ في الجوهر منذ السطر الأوّل."
+        : "Every module here ships today — Arabic-first from the first line of code.",
       modules: ar ? [
         {
           k: "invoice", n: "وحدة ٠١",
@@ -906,149 +905,27 @@ function getCopy(locale: Locale) {
       ],
     },
     testimonials: {
-      eyebrow: ar ? "الذين انتقلوا إلينا" : "Who switched to us",
+      eyebrow: ar ? "لماذا تختار أرقام" : "Why teams choose Orqam",
       title: ar
-        ? "ليست شعاراتٍ على شريحة. أرقامٌ، أسماءٌ، ومدنٌ — وكلّ ساعةٍ مُستردّة موثّقة."
-        : "Not logos on a slide. Numbers, names, and cities — every recovered hour documented.",
+        ? "بديلٌ حديثٌ لأنظمة ERP التقليديّة."
+        : "A modern alternative to legacy ERP.",
       lead: ar
-        ? "كلّ شهادةٍ هنا تأتي مع الأثر الذي يمكن قياسه: ساعات وفّرناها، أيّامٌ اختصرناها، تكاليف خُفِّضت. عملاؤنا من فرانكفورت إلى لاغوس إلى مومباي — اطلبها بالاسم وسنُريك الفاتورة."
-        : "Every quote here ships with measurable impact: hours saved, days cut, costs slashed. Our customers span Frankfurt to Lagos to Mumbai — ask us by name and we'll show you the receipts.",
-      stats: ar ? [
-        { n: "+٤٬٢٠٠", l: "مالك أعمال نشط",              s: "+١٢٪ شهريّاً" },
-        { n: "+٣٠",     l: "دولة · ١٢+ هيئة تنظيميّة",   s: "من HMRC إلى IRS إلى GAZT…" },
-        { n: "٢٫١ مليار $", l: "فُوتر عبر النظام في ٢٠٢٥", s: "بزيادة ٣٫٤× عن ٢٠٢٤" },
-        { n: "٪٩٩٫٩٧",  l: "وقت تشغيل مُؤكَّد",          s: "آخر ١٢ شهراً" },
+        ? "هذه القدرات مطبَّقة في المنتج اليوم: ترحيل القيود بالذكاء الاصطناعيّ من نصّ أو صورة، فوترة مزدوجة وفق IFRS 15، ومعالجة الأصول والتوحيد وفق المعايير الدوليّة."
+        : "These are capabilities implemented in the product today: AI entry posting from text or image, IFRS 15 double-entry invoicing, and standards-based asset handling and consolidation.",
+      highlights: ar ? [
+        { t: "ترحيل بالذكاء الاصطناعيّ", d: "سجّل القيود من نصّ أو صورة — يصنّفها ويولّد القيد الصحيح وفق IFRS." },
+        { t: "فوترة IFRS 15", d: "فوترة مزدوجة القيد مع اعتراف بالإيراد وفق IFRS 15." },
+        { t: "مكافأة نهاية الخدمة IAS 19", d: "مخصّص شهريّ لمكافأة نهاية الخدمة محسوب وفق IAS 19." },
+        { t: "الأصول والإيجارات", d: "إهلاك وإعادة تقييم واضمحلال الأصول (IAS 16/36) وعقود الإيجار (IFRS 16)." },
+        { t: "التوحيد IFRS 10", d: "توحيد متعدّد الكيانات مع إزالات داخليّة وفق IFRS 10." },
+        { t: "ذكاء من جهة الخادم", d: "كلّ استدعاءات الذكاء الاصطناعيّ تجري على الخادم — المفاتيح لا تصل المتصفّح." },
       ] : [
-        { n: "4,200+",  l: "active business owners",      s: "+12% month over month" },
-        { n: "30+",     l: "countries · 12+ regulators",  s: "HMRC, IRS, GAZT, IRAS, and more" },
-        { n: "$2.1B+", l: "invoiced through us in 2025", s: "3.4× growth over 2024" },
-        { n: "99.97%",  l: "verified uptime",             s: "trailing 12 months" },
-      ],
-      switchedLabel: ar ? "حلّوا محلّ:" : "Replacing:",
-      switchedFrom: ["QuickBooks", "Xero", "Zoho Books", "SAP", "Microsoft Excel"],
-      featured: ar ? {
-        q: "في اليوم التاسع من الإطلاق، أَغلقتُ الربع الأوّل قبل موعده بأسبوع، وأرسلتُ الإقرار الضريبيّ بنقرتَين. كنّا ندفع لـ QuickBooks أربعة آلاف ريال شهريّاً ومحاسباً خارجيّاً ضعفها — اليوم النظام يفعل ما يفعلانه ويرى ما لا يرَيانه. أصبحت الماليّة عندنا غرفةً مضاءة لا غرفةً تخاف الدخول إليها.",
-        n: "ريما خالد",
-        r: "المديرة الماليّة",
-        c: "شركة الواحة للتجارة · جدّة 🇸🇦",
-        since: "عميلة منذ مارس ٢٠٢٤",
-        kpis: [
-          { v: "١٤ ساعة", l: "وفّرتها أسبوعيّاً" },
-          { v: "٧ أيّام",   l: "إغلاق الربع · من ١٩ يوماً" },
-          { v: "٠",          l: "موعد امتثال فاتني" },
-        ],
-        switched: "QuickBooks Online",
-      } : {
-        q: "Nine days after launch, I closed Q1 a week early and filed VAT in two clicks. We were paying QuickBooks $1,000/month and an outsourced accountant twice that — today the platform does what they did and sees what they missed. Finance became a lit room, not one we feared walking into.",
-        n: "Reema Khaled",
-        r: "Chief Financial Officer",
-        c: "Al-Waha Trading · Jeddah 🇸🇦",
-        since: "Customer since March 2024",
-        kpis: [
-          { v: "14 hrs", l: "recovered every week" },
-          { v: "7 days",  l: "to close Q · was 19" },
-          { v: "0",       l: "compliance deadlines missed" },
-        ],
-        switched: "QuickBooks Online",
-      },
-      items: ar ? [
-        {
-          q: "كنّا ندير ثلاث شركات بين فرانكفورت ولندن وسنغافورة — كلّ واحدة في نظام منفصل. اليوم أرى الكلّ على شاشة واحدة، موحَّدة بالمعيار الصحيح.",
-          n: "Daniel Müller", r: "الرئيس الماليّ",
-          c: "NovaTech GmbH · فرانكفورت 🇩🇪",
-          ind: "تقنيّة الأعمال", since: "منذ ٢٠٢٤",
-          kpi: { v: "٪٤٣", l: "اختصار وقت إغلاق الشهر" },
-          switched: "SAP Business One",
-        },
-        {
-          q: "أرسلتُ الفاتورة، دفع العميل في ثوانٍ، وظهر القيد في الأستاذ قبل أن أُغلق الحاسوب. هذا ما يعني الأتمتة الحقيقيّة.",
-          n: "Sarah Chen", r: "مؤسِّسة",
-          c: "BridgePay · لندن 🇬🇧",
-          ind: "تقنيّة ماليّة", since: "منذ ٢٠٢٥",
-          kpi: { v: "٤ أيّام", l: "متوسّط التحصيل · من ١٨ يوماً" },
-          switched: "Xero",
-        },
-        {
-          q: "كنّا نستعمل Excel وثلاثة محاسبين. اليوم نستعمل هذا النظام ومحاسباً واحداً. والتقارير أدقّ وأسرع من أيّ وقت مضى.",
-          n: "Emeka Okafor", r: "الرئيس التنفيذيّ",
-          c: "Lagos Fintech Ltd · لاغوس 🇳🇬",
-          ind: "خدمات مالية", since: "منذ ٢٠٢٤",
-          kpi: { v: "٪٦٠", l: "تقليل التكلفة المحاسبية الشهريّة" },
-          switched: "Excel + محاسب خارجيّ",
-        },
-        {
-          q: "المدقّق الخارجيّ طلب ٦ أشهر من المستندات. أعطيتُه وصول قراءة فقط — في دقيقة. لم أُرسل بريداً إلكترونيّاً واحداً.",
-          n: "Maria Santos", r: "مديرة ماليّة",
-          c: "Crescent Advisory · نيويورك 🇺🇸",
-          ind: "استشارات قانونيّة وماليّة", since: "منذ ٢٠٢٤",
-          kpi: { v: "٠ ملفّ", l: "أُرسل خارج النظام في تدقيق ٢٠٢٥" },
-          switched: "QuickBooks + Google Drive",
-        },
-        {
-          q: "سألتُ المساعد عن سيولة الربع القادم — أعطاني جدولاً كاملاً بالأرقام واقتراحات لتحسينها. كان محاسبنا يعطينا هذا بعد أسبوعين.",
-          n: "Wei Zhang", r: "مدير العمليّات",
-          c: "Asia Trading Pte · سنغافورة 🇸🇬",
-          ind: "تجارة دوليّة", since: "منذ ٢٠٢٣",
-          kpi: { v: "٣ أشهر", l: "تنبؤّ مسبق بنقص السيولة" },
-          switched: "Zoho Books",
-        },
-        {
-          q: "في الموسم نُصدر ٥٠٠ فاتورة أسبوعيّاً لعملاء في ١٢ دولة. النظام يُدير الامتثال الضريبيّ لكلّ دولة تلقائيّاً — بلا أخطاء.",
-          n: "Arjun Sharma", r: "مؤسِّس",
-          c: "Meraki Tech · مومباي 🇮🇳",
-          ind: "برمجيّات للمؤسّسات", since: "منذ ٢٠٢٤",
-          kpi: { v: "١٢ دولة", l: "امتثال ضريبيّ آليّ بلا أخطاء" },
-          switched: "نظام داخليّ مخصّص",
-        },
-      ] : [
-        {
-          q: "We ran three companies across Frankfurt, London, and Singapore — each in a separate system. Today I see everything on one screen, consolidated to the right standard.",
-          n: "Daniel Müller", r: "Chief Financial Officer",
-          c: "NovaTech GmbH · Frankfurt 🇩🇪",
-          ind: "B2B Technology", since: "Since 2024",
-          kpi: { v: "−43%", l: "month-close time" },
-          switched: "SAP Business One",
-        },
-        {
-          q: "I send the invoice, the client pays in seconds, and the journal entry lands before I close my laptop. That's what real automation looks like.",
-          n: "Sarah Chen", r: "Founder",
-          c: "BridgePay · London 🇬🇧",
-          ind: "Fintech", since: "Since 2025",
-          kpi: { v: "4 days", l: "avg collection · was 18" },
-          switched: "Xero",
-        },
-        {
-          q: "We used to run Excel and three accountants. Today we run this platform and one accountant. The reports are more accurate and faster than ever.",
-          n: "Emeka Okafor", r: "Chief Executive Officer",
-          c: "Lagos Fintech Ltd · Lagos 🇳🇬",
-          ind: "Financial Services", since: "Since 2024",
-          kpi: { v: "−60%", l: "monthly accounting cost" },
-          switched: "Excel + outsourced accountant",
-        },
-        {
-          q: "The external auditor asked for 6 months of documents. I gave him read-only access — in one minute. I didn't send a single email.",
-          n: "Maria Santos", r: "Chief Financial Officer",
-          c: "Crescent Advisory · New York 🇺🇸",
-          ind: "Legal & Financial Advisory", since: "Since 2024",
-          kpi: { v: "0 files", l: "sent outside the system in 2025 audit" },
-          switched: "QuickBooks + Google Drive",
-        },
-        {
-          q: "I asked the AI about next quarter's liquidity — it handed me a full breakdown with optimization suggestions. Our accountant used to deliver this two weeks later.",
-          n: "Wei Zhang", r: "Chief Operating Officer",
-          c: "Asia Trading Pte · Singapore 🇸🇬",
-          ind: "International Trade", since: "Since 2023",
-          kpi: { v: "3 months", l: "advance liquidity warning" },
-          switched: "Zoho Books",
-        },
-        {
-          q: "In peak season we issue 500 invoices a week to clients in 12 countries. The platform handles tax compliance for every country automatically — zero errors.",
-          n: "Arjun Sharma", r: "Founder",
-          c: "Meraki Tech · Mumbai 🇮🇳",
-          ind: "Enterprise Software", since: "Since 2024",
-          kpi: { v: "12 countries", l: "auto tax compliance, zero errors" },
-          switched: "Custom in-house tool",
-        },
+        { t: "AI entry posting", d: "Post entries from text or an image — it classifies and generates the correct IFRS entry." },
+        { t: "IFRS 15 invoicing", d: "Double-entry invoicing with revenue recognition per IFRS 15." },
+        { t: "IAS 19 end-of-service", d: "Monthly end-of-service benefit provision computed per IAS 19." },
+        { t: "Assets & leases", d: "Depreciation, revaluation, and impairment (IAS 16/36) and leases (IFRS 16)." },
+        { t: "IFRS 10 consolidation", d: "Multi-entity consolidation with intercompany eliminations per IFRS 10." },
+        { t: "Server-side AI", d: "All AI calls run on the server — keys never reach the browser." },
       ],
     },
     faq: {
@@ -2512,12 +2389,7 @@ function TrustStrip({ t }: { t: Dict }) {
           {t.trust.metrics.map((m) => (
             <div key={m.l} className={cn(bentoCardSoft, "p-4 lg:p-5")}>
               <div className={eyebrowCls(ar, "mb-2 text-muted-foreground")}>{m.l}</div>
-              <div className={cn(
-                "text-foreground leading-none",
-                m.mono
-                  ? "font-mono text-lg lg:text-xl tabular-nums"
-                  : "font-display text-2xl font-semibold tracking-tight",
-              )}>
+              <div className="text-foreground leading-none font-display text-2xl font-semibold tracking-tight">
                 {m.v}
               </div>
             </div>
@@ -3078,207 +2950,28 @@ function Manifesto({ t }: { t: Dict }) {
 
 function Testimonials({ t }: { t: Dict }) {
   const ts = t.testimonials
-  const f = ts.featured
-  const fInit = f.n.split(/\s+/).slice(0, 2).map((w) => w[0]).join("")
   return (
     <BentoSection id="customers" tone="soft">
       <SectionHead ar={t.ar} num="14" eyebrow={ts.eyebrow} title={ts.title} lead={ts.lead} />
 
-      {/* Proof-stats — bento quad */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-10 lg:mb-12">
-        {ts.stats.map((s, i) => {
-          const cls = i === 0 ? bentoCardPeach : i === 1 ? bentoCard : i === 2 ? bentoCardBlue : bentoCardInk
-          const ink = i === 3
+      {/* Honest value-prop highlights — owner-confirmed real capabilities */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {ts.highlights.map((h, i) => {
+          const cardCls = i % 3 === 0 ? bentoCardBlue : i % 3 === 1 ? bentoCard : bentoCardPeach
           return (
-            <div key={i} className={cn(cls, "p-6 lg:p-7")} data-testid={`testimonial-stat-${i}`}>
-              <div
-                className={cn(
-                  "tabular-nums leading-none tracking-tight mb-3",
-                  t.ar ? "font-semibold" : "font-display",
-                  ink ? "text-background" : "text-foreground",
-                )}
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-              >
-                {s.n}
+            <div
+              key={h.t}
+              className={cn(cardCls, "p-6 lg:p-7 flex flex-col gap-3")}
+              data-testid={`highlight-${i}`}
+            >
+              <div className={eyebrowCls(t.ar, "text-foreground/70 inline-flex items-center gap-2")}>
+                <LuxeDot />{h.t}
               </div>
-              <div className={cn("text-sm leading-snug", ink ? "text-background" : "text-foreground")}>{s.l}</div>
-              <div className={cn("mt-1.5", eyebrowCls(t.ar, ink ? "text-background/65" : "text-foreground/55"))}>
-                {s.s}
-              </div>
+              <p className="text-base leading-relaxed text-foreground/85">{h.d}</p>
             </div>
           )
         })}
       </div>
-
-      {/* Featured testimonial — peach broadsheet card */}
-      <figure className={cn(bentoCardPeach, "mb-10 lg:mb-12 p-8 lg:p-12")} data-testid="testimonial-featured">
-        <div className="flex items-baseline gap-3 pb-4 border-b border-foreground/10 mb-8 lg:mb-10">
-          <LuxeDot />
-          <span className={eyebrowCls(t.ar, "text-foreground/70")}>
-            {t.ar ? "تقرير ميدانيّ · عميلةٌ موثّقة" : "field report · verified customer"}
-          </span>
-          <span className="flex-1" />
-          <span className={eyebrowCls(t.ar, "text-foreground/55")}>{f.since}</span>
-        </div>
-
-        <blockquote
-          className={cn(
-            "max-w-4xl mb-10 lg:mb-12 text-foreground",
-            t.ar
-              ? "text-2xl sm:text-3xl lg:text-4xl font-semibold leading-[1.5] tracking-tight"
-              : "font-display text-3xl sm:text-4xl lg:text-5xl tracking-[-0.022em] leading-[1.08]",
-          )}
-        >
-          {f.q}
-          <span style={{ color: "hsl(var(--luxe))" }}>.</span>
-        </blockquote>
-
-        <div className="grid lg:grid-cols-12 gap-y-8 lg:gap-x-10 pt-6 border-t border-foreground/10">
-          <figcaption className="lg:col-span-5 flex items-start gap-4">
-            <div
-              aria-hidden
-              className="size-12 rounded-full bg-foreground text-background flex items-center justify-center font-semibold text-sm flex-shrink-0"
-            >
-              {fInit}
-            </div>
-            <div className="min-w-0">
-              <div className={cn("mb-2", eyebrowCls(t.ar, "text-foreground/55"))}>
-                — {t.ar ? "بقلم" : "by"}
-              </div>
-              <div className="text-base font-semibold text-foreground">{f.n}</div>
-              <div className="text-sm text-foreground/65 mt-0.5">{f.r}</div>
-              <div className="text-sm text-foreground/80 mt-0.5">{f.c}</div>
-              <div className={cn("mt-3", eyebrowCls(t.ar, "text-foreground/55"))}>
-                {ts.switchedLabel}{" "}
-                <span className="text-foreground/85"><span aria-hidden>×</span>{" "}{f.switched}</span>
-              </div>
-            </div>
-          </figcaption>
-
-          <div className="lg:col-span-7 grid grid-cols-3 gap-x-5 lg:gap-x-8">
-            {f.kpis.map((k, i) => (
-              <div
-                key={i}
-                className={cn("ps-5 lg:ps-6 border-s border-foreground/15", i === 0 && "ps-0 lg:ps-0 border-s-0")}
-                data-testid={`featured-kpi-${i}`}
-              >
-                <div
-                  className={cn(
-                    "tabular-nums leading-none tracking-tight mb-2 text-foreground",
-                    t.ar ? "font-semibold" : "font-display",
-                  )}
-                  style={{ fontSize: "clamp(1.75rem, 3.6vw, 2.5rem)" }}
-                >
-                  {k.v}
-                </div>
-                <div className="text-2xs lg:text-xs leading-snug text-foreground/65">{k.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </figure>
-
-      {/* Grid of remaining testimonials */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mb-10">
-        {ts.items.map((it, i) => {
-          const initials = it.n.split(/\s+/).slice(0, 2).map((w) => w[0]).join("")
-          const cardCls = i === 0 ? bentoCardBlue : i === 1 ? bentoCard : bentoCardPeach
-          const tints = [
-            "bg-[hsl(217_30%_75%)] text-foreground",
-            "bg-foreground text-background",
-            "bg-[hsl(20_60%_80%)] text-foreground",
-          ]
-          const tint = tints[i % tints.length]
-            return (
-              <figure
-                key={it.n}
-                className={cn(cardCls, "group p-6 lg:p-7 flex flex-col gap-5")}
-                data-testid={`testimonial-${i}`}
-              >
-                {/* Top: 5 stars + verified */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-0.5" aria-label={t.ar ? "تقييم خمس نجوم" : "Five stars"}>
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <svg key={s} viewBox="0 0 20 20" className="size-4 fill-warning" aria-hidden>
-                        <path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.85l-5.25 2.8 1-5.85L1.5 7.65l5.9-.85L10 1.5z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1 text-2xs font-mono text-success uppercase tracking-wider">
-                    <Check className="size-3" />
-                    {t.ar ? "موثّقة" : "Verified"}
-                  </span>
-                </div>
-
-                <blockquote className="text-base leading-relaxed text-foreground/90 relative flex-1">
-                  <span
-                    aria-hidden
-                    className="absolute -top-2 -start-1 text-3xl font-serif leading-none select-none"
-                    style={{ color: "hsl(var(--luxe) / 0.35)" }}
-                  >
-                    “
-                  </span>
-                  <span className="relative">{it.q}</span>
-                </blockquote>
-
-                {/* KPI ribbon — inverse ink chip */}
-                <div className="rounded-xl bg-foreground text-background px-4 py-3 flex items-baseline gap-3">
-                  <span className="text-lg font-semibold tabular-nums tracking-tight whitespace-nowrap">
-                    {it.kpi.v}
-                  </span>
-                  <span className="text-2xs leading-snug text-background/80">{it.kpi.l}</span>
-                </div>
-
-                <figcaption className="mt-auto pt-4 border-t border-foreground/10 flex items-center gap-3">
-                  <div
-                    aria-hidden
-                    className={cn(
-                      "size-11 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0",
-                      tint
-                    )}
-                  >
-                    {initials}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-sm font-semibold text-foreground truncate">{it.n}</div>
-                    <div className="text-2xs text-muted-foreground truncate">{it.r}</div>
-                    <div className="text-2xs text-foreground/70 mt-0.5 truncate">{it.c}</div>
-                  </div>
-                </figcaption>
-
-                <div className="flex items-center justify-between gap-2 -mt-1">
-                  <span className="inline-flex items-center gap-1.5 text-2xs text-foreground/70 rounded-full bg-foreground/5 border border-foreground/10 px-2 py-0.5">
-                    <LuxeDot />{it.ind}
-                  </span>
-                  <span className={eyebrowCls(t.ar, "text-foreground/55")}>{it.since}</span>
-                </div>
-
-                <div className="-mt-2 flex items-center gap-1.5 text-2xs text-foreground/60">
-                  <span className={eyebrowCls(t.ar)}>{ts.switchedLabel}</span>
-                  <span className="text-foreground/70 line-through decoration-loss/50 decoration-[1.5px]">
-                    {it.switched}
-                  </span>
-                </div>
-              </figure>
-            )
-          })}
-        </div>
-
-        {/* Switched-from wordmark strip — soft cream card */}
-        <div className={cn(bentoCardSoft, "p-5 lg:p-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3")}>
-          <span className={eyebrowCls(t.ar, "text-foreground/65")}>
-            {t.ar ? "محاسب ذكي حلّ محلّ" : "Smart Accountant has replaced"}
-          </span>
-          {ts.switchedFrom.map((s) => (
-            <span
-              key={s}
-              className="text-base font-semibold text-foreground/60 grayscale hover:text-foreground hover:grayscale-0 transition-colors"
-              data-testid={`switched-from-${s}`}
-            >
-              {s}
-            </span>
-          ))}
-        </div>
     </BentoSection>
   )
 }
@@ -4528,13 +4221,15 @@ function UseCases({ t }: { t: Dict }) {
           )}>
             {current.headline}
           </h3>
-          <blockquote className={cn("border-foreground mb-4", t.ar ? "border-r-2 pr-5" : "border-l-2 pl-5")}>
-            <p className={cn(
-              "text-base lg:text-lg leading-relaxed text-foreground/85",
-              t.ar ? "" : "italic",
-            )}>{current.quote}</p>
-            <footer className="mt-3 text-sm text-muted-foreground">{current.author}</footer>
-          </blockquote>
+          {current.quote && (
+            <blockquote className={cn("border-foreground mb-4", t.ar ? "border-r-2 pr-5" : "border-l-2 pl-5")}>
+              <p className={cn(
+                "text-base lg:text-lg leading-relaxed text-foreground/85",
+                t.ar ? "" : "italic",
+              )}>{current.quote}</p>
+              {current.author && <footer className="mt-3 text-sm text-muted-foreground">{current.author}</footer>}
+            </blockquote>
+          )}
         </div>
         <div className={cn(bentoCardPeach, "col-span-12 lg:col-span-5 p-7 lg:p-9")}>
           <div className={eyebrowCls(t.ar, "mb-4 text-foreground/70 inline-flex items-center gap-2")}>

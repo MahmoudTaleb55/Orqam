@@ -33,7 +33,7 @@ export default function AiAssistantPage() {
 
       <CTASection
         title={ar ? "جرّب المساعد المحاسبيّ اليوم" : "Try the AI assistant today"}
-        subtitle={ar ? "أكثر من ٢٤٬٠٠٠ قيد يُسجَّل يوميّاً عبر المساعد." : "More than 24,000 entries posted daily via the assistant."}
+        subtitle={ar ? "سجّل القيود من نصّ أو صورة، في ثوانٍ." : "Post entries from text or an image, in seconds."}
         primaryLabel={ar ? "ابدأ مجّاناً" : "Start free"}
         primaryHref="/app"
         secondaryLabel={ar ? "اطّلع على كوكبت القرار" : "See Decision Cockpit"}

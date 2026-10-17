@@ -40,7 +40,7 @@ export default function TermsPage() {
     },
     {
       title: "٩. القانون الواجب التطبيق",
-      body: "تخضع هذه الشروط لقوانين دولة الإمارات العربيّة المتحدة. أيّ نزاع يُحسَم أوّلاً بالتفاوض الودّيّ، وإن تعذَّر ذلك فبالتحكيم وفق قواعد مركز دبي للتحكيم الدوليّ.",
+      body: "بوصفه نموذجاً أوّليّاً طلّابيّاً، تُعدّ هذه الشروط قالباً نموذجيّاً ولا تُشكّل اتفاقيّةً ملزِمة؛ ولا يُحدَّد أيّ اختصاص قضائيّ معيّن.",
     },
   ] : [
     {
@@ -77,7 +77,7 @@ export default function TermsPage() {
     },
     {
       title: "9. Governing law",
-      body: "These terms are governed by the laws of the United Arab Emirates. Any dispute shall first be resolved through good-faith negotiation, and if that fails, through arbitration per the rules of the Dubai International Arbitration Centre.",
+      body: "As a student prototype, these terms are a sample template and do not constitute a binding agreement; no specific governing jurisdiction is asserted.",
     },
   ]
 
@@ -87,8 +87,8 @@ export default function TermsPage() {
         eyebrow={ar ? "الشروط" : "Terms"}
         title={ar ? "شروط الخدمة" : "Terms of Service"}
         subtitle={ar
-          ? "هذه الشروط تحكم علاقتنا معك. نؤمن بالشفافيّة لذا كتبناها بلغة واضحة."
-          : "These terms govern our relationship with you. We believe in transparency, so we wrote them in plain language."}
+          ? "هذه وثيقة شروط نموذجيّة لنموذج أوّليّ طلّابيّ، وليست عقداً ملزِماً. كتبناها بلغة واضحة."
+          : "This is a sample Terms document for a student prototype, not a binding contract. We wrote it in plain language."}
       />
 
       <div className="py-8 text-small text-muted-foreground mb-8">

@@ -19,8 +19,8 @@ export default function ContactPage() {
         eyebrow={ar ? "تواصل معنا" : "Contact"}
         title={ar ? "نحن هنا لمساعدتك" : "We're here to help"}
         subtitle={ar
-          ? "سواء كنت تريد تجربة المنتج، أو لديك سؤال تقنيّ، أو تبحث عن عرض للمؤسّسات — فريقنا يردّ في غضون يوم عمل."
-          : "Whether you want to try the product, have a technical question, or are looking for an enterprise quote — our team responds within one business day."}
+          ? "هذا نموذج تواصل تجريبيّ — الرسالة لا تُرسَل إلى أيّ جهة."
+          : "This is a prototype contact form — the message is not sent anywhere."}
       />
 
       <section className="py-10 max-w-2xl mx-auto">
@@ -31,7 +31,7 @@ export default function ContactPage() {
               {ar ? "شكراً! استلمنا رسالتك." : "Thanks! We received your message."}
             </h2>
             <p className="text-muted-foreground">
-              {ar ? "سيتواصل معك فريقنا خلال يوم عمل واحد." : "Our team will reach out within one business day."}
+              {ar ? "شكراً — تنبيه: هذا نموذج أوّليّ، والنموذج لا يوصل الرسائل." : "Thanks — note this is a prototype; the form doesn't deliver messages."}
             </p>
           </div>
         ) : (
@@ -103,9 +103,9 @@ export default function ContactPage() {
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
           {[
-            { icon: "💬", labelAr: "دردشة مباشرة",   labelEn: "Live chat",   descAr: "من داخل التطبيق", descEn: "Inside the app" },
-            { icon: "📧", labelAr: "بريد إلكترونيّ", labelEn: "Email",       descAr: "hello@smartacc.io", descEn: "hello@smartacc.io" },
-            { icon: "📅", labelAr: "اجتماع مُجدوَل", labelEn: "Book a call", descAr: "للمنشآت الكبرى",  descEn: "For enterprises" },
+            { icon: "💬", labelAr: "دردشة مباشرة",   labelEn: "Live chat",   descAr: "غير متاحة في النموذج الأوّليّ", descEn: "Not available in the prototype" },
+            { icon: "📧", labelAr: "بريد إلكترونيّ", labelEn: "Email",       descAr: "hello@orqam.example", descEn: "hello@orqam.example" },
+            { icon: "📅", labelAr: "اجتماع مُجدوَل", labelEn: "Book a call", descAr: "عرض تجريبيّ فقط",  descEn: "Demo only" },
           ].map((c) => (
             <div key={c.labelEn} className="rounded-xl border border-card-border bg-card p-4">
               <div className="text-2xl mb-2">{c.icon}</div>

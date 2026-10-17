@@ -46,14 +46,14 @@ const POSTS: Record<string, {
     readTimeAr: "٦ دقائق", readTimeEn: "6 min read",
     bodyAr: [
       "منذ ٢٠٢٣، دخل الذكاء الاصطناعيّ مجال المحاسبة بشكل فعليّ — لكن كثيراً من الادّعاءات المتداولة مبالَغ فيها أو مضلِّلة.",
-      "ما يتغيّر فعلاً: (١) تصنيف المعاملات تلقائيّاً بدقّة تتجاوز ٩٥٪، (٢) استخراج بيانات الفواتير من الصور، (٣) اكتشاف الشذوذات والتكرار، (٤) التنبّؤ بالتدفّق النقديّ.",
+      "ما يتغيّر فعلاً: (١) تصنيف المعاملات تلقائيّاً، (٢) استخراج بيانات الفواتير من الصور، (٣) اكتشاف الشذوذات والتكرار، (٤) التنبّؤ بالتدفّق النقديّ.",
       "ما لا يزال يحتاج إنساناً: (١) الأحكام المحاسبيّة الجوهريّة كتقديرات القيمة العادلة، (٢) قرارات السياسات المحاسبيّة، (٣) التحقّق من الصفقات غير الاعتياديّة، (٤) تواصل أصحاب المصلحة.",
       "المخاطر الحقيقيّة: الاعتماد الأعمى على النتائج دون مراجعة بشريّة، وإدخال بيانات حسّاسة في نماذج خارجيّة غير مُؤمَّنة.",
       "التوصية: استخدم الذكاء الاصطناعيّ للأتمتة الروتينيّة، لكن احتفظ بمحاسب مؤهَّل لاتّخاذ القرارات الجوهريّة ومراجعة النتائج.",
     ],
     bodyEn: [
       "Since 2023, AI has genuinely entered the accounting space — but many of the claims being made are exaggerated or misleading.",
-      "What's actually changing: (1) automatic transaction classification with 95%+ accuracy, (2) invoice data extraction from images, (3) anomaly and duplicate detection, (4) cash flow prediction.",
+      "What's actually changing: (1) automatic transaction classification, (2) invoice data extraction from images, (3) anomaly and duplicate detection, (4) cash flow prediction.",
       "What still needs a human: (1) material accounting judgments like fair value estimates, (2) accounting policy decisions, (3) verification of unusual transactions, (4) stakeholder communication.",
       "Real risks: blind reliance on AI output without human review, and feeding sensitive financial data into unsecured external models.",
       "Recommendation: use AI for routine automation, but retain a qualified accountant for material decisions and output review.",
@@ -69,14 +69,14 @@ const POSTS: Record<string, {
     excerptEn: "Companies don't die from lack of profit — they die from cash scarcity. We teach you to build a cash forecast model that actually works.",
     readTimeAr: "٨ دقائق", readTimeEn: "8 min read",
     bodyAr: [
-      "إحصائيّة صادمة: ٨٢٪ من حالات إفلاس الشركات الصغيرة ناتجة عن سوء إدارة التدفّق النقديّ — لا عن قلّة الربحيّة.",
+      "معظم حالات إفلاس الشركات الصغيرة تعود إلى سوء إدارة التدفّق النقديّ، لا إلى قلّة الربحيّة.",
       "الخطأ الشائع: معظم الشركات تخلط بين الربح والسيولة. يمكنك أن تكون رابحاً على الورق وتواجه أزمة سيولة في نفس الوقت.",
       "المكوّنات الأساسيّة للنموذج: (١) التدفّقات الداخلة المتوقَّعة (إيرادات + مُحصَّلات)، (٢) التدفّقات الخارجة الثابتة (إيجار + رواتب + أقساط)، (٣) التدفّقات الخارجة المتغيّرة، (٤) احتياطيّ الطوارئ.",
       "أفق التوقّع الموصى به: ١٣ أسبوعاً للتشغيل اليوميّ + ١٢ شهراً للتخطيط الاستراتيجيّ.",
       "أداة عمليّة: يمكن لأنظمة المحاسبة الذكيّة اليوم ربط بيانات القيود الفعليّة بنماذج التوقّع وتوليد سيناريوهات تلقائيّاً.",
     ],
     bodyEn: [
-      "A sobering statistic: 82% of small business failures are caused by poor cash flow management — not lack of profitability.",
+      "Most small-business failures trace back to poor cash-flow management, not lack of profitability.",
       "The common mistake: most companies confuse profit with liquidity. You can be profitable on paper and face a cash crisis simultaneously.",
       "Core model components: (1) projected inflows (revenue + collections), (2) fixed outflows (rent + salaries + loan payments), (3) variable outflows, (4) emergency reserve.",
       "Recommended forecast horizon: 13 weeks for operational management + 12 months for strategic planning.",

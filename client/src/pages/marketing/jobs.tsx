@@ -6,7 +6,7 @@ export const OPENINGS = [
     slug: "backend-engineer",
     titleAr: "مهندس بنيّة تحتيّة (Backend)", titleEn: "Backend Infrastructure Engineer",
     typeAr: "دوام كامل · عن بُعد", typeEn: "Full-time · Remote",
-    locationAr: "في أيّ مكان",        locationEn: "Anywhere",
+    locationAr: "عن بُعد (نموذج أوّليّ)",        locationEn: "Remote (prototype)",
     deptAr: "هندسة", deptEn: "Engineering",
     descAr: "ابنِ الخدمات الأساسيّة التي تُشغِّل نظامنا المحاسبيّ بكفاءة عالية وأمان على مستوى المؤسّسات.",
     descEn: "Build the core services that power our accounting system with high efficiency and enterprise-grade security.",
@@ -15,16 +15,16 @@ export const OPENINGS = [
     slug: "frontend-engineer",
     titleAr: "مهندس واجهات أماميّة (React / TypeScript)", titleEn: "Frontend Engineer (React / TypeScript)",
     typeAr: "دوام كامل · عن بُعد",   typeEn: "Full-time · Remote",
-    locationAr: "في أيّ مكان",        locationEn: "Anywhere",
+    locationAr: "عن بُعد (نموذج أوّليّ)",        locationEn: "Remote (prototype)",
     deptAr: "هندسة", deptEn: "Engineering",
-    descAr: "صمِّم تجارب مستخدم استثنائيّة لمنتج ماليّ تستخدمه شركات في ٣٠ دولة يوميّاً.",
-    descEn: "Design exceptional user experiences for a financial product used by companies in 30 countries daily.",
+    descAr: "صمِّم تجربة استخدام متميّزة لنموذج محاسبيّ أوّليّ يعتمد IFRS أوّلاً.",
+    descEn: "Design exceptional UX for an IFRS-first accounting prototype.",
   },
   {
     slug: "accounting-expert",
     titleAr: "خبير محاسبة ومعايير دوليّة", titleEn: "Accounting & IFRS Standards Expert",
     typeAr: "دوام كامل · عن بُعد أو مختلط", typeEn: "Full-time · Remote or hybrid",
-    locationAr: "الرياض أو دبي أو عن بُعد", locationEn: "Riyadh, Dubai, or Remote",
+    locationAr: "عن بُعد (نموذج أوّليّ)", locationEn: "Remote (prototype)",
     deptAr: "منتج وامتثال", deptEn: "Product & Compliance",
     descAr: "كن الصوت المحاسبيّ الصحيح داخل الفريق. تأكّد من أنّ كلّ ميزة صحيحة وفق IFRS وقوانين الدول.",
     descEn: "Be the correct accounting voice on the team. Ensure every feature is right per IFRS and local laws.",
@@ -33,7 +33,7 @@ export const OPENINGS = [
     slug: "customer-success",
     titleAr: "مدير نجاح العملاء", titleEn: "Customer Success Manager",
     typeAr: "دوام كامل · مختلط",    typeEn: "Full-time · Hybrid",
-    locationAr: "دبي أو الرياض",    locationEn: "Dubai or Riyadh",
+    locationAr: "عن بُعد (نموذج أوّليّ)",    locationEn: "Remote (prototype)",
     deptAr: "نجاح العملاء", deptEn: "Customer Success",
     descAr: "ساعد عملاءنا في تحقيق أقصى استفادة من المنتج وتحويلهم إلى سفراء شغوفين.",
     descEn: "Help our customers get maximum value from the product and turn them into passionate ambassadors.",
@@ -50,11 +50,16 @@ export default function JobsPage() {
         eyebrow={ar ? "الوظائف" : "Jobs"}
         title={ar ? "ابنِ مستقبل التمويل معنا" : "Build the future of finance with us"}
         subtitle={ar
-          ? "فريق متعدّد الجنسيّات، بيئة عمل حاضنة، وأثر حقيقيّ في حياة الشركات. نبحث عن أشخاص يؤمنون بما نبنيه."
-          : "A multinational team, an inclusive work environment, and a real impact on businesses. We're looking for people who believe in what we're building."}
+          ? "لسنا نوظّف حاليّاً — هذا نموذج أوّليّ. الأدوار التالية توضيحيّة فقط."
+          : "We're not currently hiring — this is a prototype. These roles are illustrative."}
       />
 
       <section className="py-10">
+        <div className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-4 text-small text-foreground/80">
+          {ar
+            ? "تنبيه: لسنا نوظّف حاليّاً — هذا نموذج أوّليّ، والأدوار أدناه توضيحيّة فقط."
+            : "Note: we're not currently hiring — this is a prototype. The roles below are illustrative only."}
+        </div>
         <div className="space-y-4">
           {OPENINGS.map((job) => (
             <div

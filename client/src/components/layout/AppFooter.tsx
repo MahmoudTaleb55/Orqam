@@ -109,9 +109,7 @@ export function AppFooter({ columns, tagline, className }: AppFooterProps) {
           <div className="flex items-center gap-3 text-caption text-muted-foreground">
             <span>© {year} {brandName}</span>
             <span className="opacity-40">·</span>
-            <span className="font-mono tracking-wider uppercase">IFRS-Compliant</span>
-            <span className="opacity-40">·</span>
-            <span className="font-mono tracking-wider uppercase">SOC 2 · Type II</span>
+            <span className="font-mono tracking-wider uppercase">Built to IFRS principles · Prototype</span>
           </div>
           <div className="flex items-center gap-5 text-small text-muted-foreground">
             <a href="/privacy"  className="hover:text-foreground transition-colors duration-150" data-testid="link-footer-privacy">{privacy}</a>

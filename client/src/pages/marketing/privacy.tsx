@@ -20,11 +20,11 @@ export default function PrivacyPage() {
     },
     {
       title: "٤. أمان البيانات",
-      body: "نحمي بياناتك بتشفير AES-256 أثناء التخزين وTLS 1.3 أثناء النقل. نجري تدقيقات أمنيّة دوريّة وامتثلنا لمعيار SOC 2 Type II. لا يمكن لأيّ موظّف لدينا الاطّلاع على بياناتك المالية دون إذن صريح منك.",
+      body: "نقدّم حركة البيانات عبر TLS 1.3 أثناء النقل، ونُبقي الأسرار على جهة الخادم. التشفير المُدار للبيانات المخزّنة على خارطة الطريق. نُجري مراجعات أمنيّة داخليّة دوريّة.",
     },
     {
       title: "٥. حقوقك",
-      body: "يحقّ لك طلب الاطّلاع على بياناتك، تصحيحها، حذفها، أو تصديرها في أيّ وقت. يمكنك ممارسة هذه الحقوق عبر لوحة الإعدادات أو التواصل مع فريق الخصوصيّة على privacy@smartacc.io.",
+      body: "يحقّ لك طلب الاطّلاع على بياناتك، تصحيحها، حذفها، أو تصديرها في أيّ وقت. يمكنك ممارسة هذه الحقوق عبر لوحة الإعدادات أو التواصل معنا على hello@orqam.example.",
     },
     {
       title: "٦. الاحتفاظ بالبيانات",
@@ -53,11 +53,11 @@ export default function PrivacyPage() {
     },
     {
       title: "4. Data security",
-      body: "We protect your data with AES-256 encryption at rest and TLS 1.3 in transit. We conduct periodic security audits and are SOC 2 Type II compliant. No employee can access your financial data without your explicit permission.",
+      body: "We serve traffic over TLS 1.3 in transit and keep secrets server-side. Managed encryption at rest is on our roadmap. We run periodic internal security reviews.",
     },
     {
       title: "5. Your rights",
-      body: "You may request access, correction, deletion, or export of your data at any time. Exercise these rights through the settings panel or by contacting our privacy team at privacy@smartacc.io.",
+      body: "You may request access, correction, deletion, or export of your data at any time. Exercise these rights through the settings panel or by contacting us at hello@orqam.example.",
     },
     {
       title: "6. Data retention",
@@ -79,8 +79,8 @@ export default function PrivacyPage() {
         eyebrow={ar ? "الخصوصيّة" : "Privacy"}
         title={ar ? "سياسة الخصوصيّة" : "Privacy Policy"}
         subtitle={ar
-          ? "نؤمن بأنّ بياناتك ملكٌ لك وحدك. هذه السياسة تشرح ما نجمعه، كيف نستخدمه، وكيف نحميه."
-          : "We believe your data belongs to you alone. This policy explains what we collect, how we use it, and how we protect it."}
+          ? "هذه سياسة نموذجيّة لنموذج أوّليّ طلّابيّ، وليست اتفاقيّة قانونيّة ملزِمة. تشرح ما نجمعه، كيف نستخدمه، وكيف نحميه."
+          : "This is a sample policy for a student prototype, not a binding legal agreement. It explains what we collect, how we use it, and how we protect it."}
       />
 
       <div className="py-8 text-small text-muted-foreground mb-8">

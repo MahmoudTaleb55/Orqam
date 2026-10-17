@@ -15,21 +15,21 @@ export default function PlatformPage() {
           : "A complete IFRS-compliant accounting system with AI at its core — not bolted on. From your first invoice to audit-ready financial statements."}
       />
 
-      <ComplianceBadges items={["IFRS", "SOC 2 Type II", "GDPR", "PDPL", "CCPA", "PEPPOL", "EN 16931"]} />
+      <ComplianceBadges items={["IFRS", "IFRS 15", "IFRS 16", "PEPPOL", "EN 16931"]} />
 
       <FeaturesGrid features={ar ? [
         { icon: "🧠", title: "ذكاء اصطناعيّ في القلب", description: "يقرأ الفاتورة، يصنّفها، يقترح القيد الصحيح وفق IFRS، ويتعلّم من تعديلاتك — دون تدخّل يدويّ." },
         { icon: "📊", title: "قوائم ماليّة فوريّة", description: "الميزانيّة العموميّة، قائمة الدخل، والتدفّقات النقديّة — جاهزة للتدقيق في لحظة." },
-        { icon: "🌍", title: "+٣٠ دولة مدعومة", description: "ضريبة القيمة المضافة، التأمينات الاجتماعيّة، مكافأة نهاية الخدمة — جاهزة في كلّ دولة ومُحدَّثة تلقائيّاً." },
-        { icon: "🔐", title: "أمان على مستوى المؤسّسات", description: "تشفير AES-256، وSOC 2 Type II، وأثر تدقيق كامل وفق IFRS لكلّ قيد." },
-        { icon: "🔗", title: "تكاملات عالميّة", description: "PEPPOL، Stripe، SWIFT/SEPA، وأكثر من ٤٠ تكاملاً جاهزاً عبر REST API." },
+        { icon: "🌍", title: "حزم قُطريّة لـ MENA والعالم", description: "ضريبة القيمة المضافة، التأمينات الاجتماعيّة، مكافأة نهاية الخدمة — مُنمذَجة لكلّ حزمة قُطريّة." },
+        { icon: "🔐", title: "أمان على مستوى المؤسّسات", description: "عزل بيانات بسياسات RLS، أسرار من جهة الخادم، TLS أثناء النقل، وأثر تدقيق لا يقبل التعديل. قيد التطوير — لم نحصل على شهادات بعد." },
+        { icon: "🔗", title: "تكاملات عالميّة", description: "الفوترة الإلكترونيّة العالميّة (PEPPOL) متاحة اليوم؛ وقنوات البنوك والمدفوعات محاكاة تجريبيّة لا شراكات مباشرة." },
         { icon: "👥", title: "تعدّد الشركات والعملات", description: "أدر مجموعةً من الشركات في دول وعملات مختلفة — نظرة موحَّدة على الجميع." },
       ] : [
         { icon: "🧠", title: "AI at the core", description: "Reads invoices, classifies them, proposes correct IFRS entries, and learns from your corrections — no manual work." },
         { icon: "📊", title: "Instant financial statements", description: "Balance sheet, income statement, and cash flow — audit-ready in an instant." },
-        { icon: "🌍", title: "30+ countries supported", description: "VAT, social insurance, end-of-service — pre-configured per country and auto-updated." },
-        { icon: "🔐", title: "Enterprise-grade security", description: "AES-256 encryption, SOC 2 Type II, and an immutable IFRS audit trail on every entry." },
-        { icon: "🔗", title: "Global integrations", description: "PEPPOL, Stripe, SWIFT/SEPA, and 40+ ready integrations via REST API." },
+        { icon: "🌍", title: "MENA & global country packs", description: "VAT, social insurance, end-of-service — modeled per country pack." },
+        { icon: "🔐", title: "Enterprise-grade security", description: "RLS data isolation, server-side secrets, TLS in transit, and an immutable audit trail. In development — not yet certified." },
+        { icon: "🔗", title: "Global integrations", description: "Global e-invoicing (PEPPOL) today; bank and payment rails are simulated demos, not live partnerships." },
         { icon: "👥", title: "Multi-entity & currency", description: "Manage a group of companies across countries and currencies — consolidated view of all." },
       ]} />
 

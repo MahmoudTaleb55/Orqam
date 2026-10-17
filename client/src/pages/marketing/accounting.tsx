@@ -15,7 +15,7 @@ export default function AccountingPage() {
           : "A complete accounting system that posts every entry automatically, validates the equation in real time, and produces audit-ready financial statements anytime."}
       />
 
-      <ComplianceBadges items={["IFRS", "IFRS 15", "IFRS 16", "IAS 9", "IAS 36", "SOC 2"]} />
+      <ComplianceBadges items={["IFRS", "IFRS 15", "IFRS 16", "IAS 9", "IAS 36"]} />
 
       <FeaturesGrid features={ar ? [
         { icon: "📒", title: "دليل الحسابات", description: "شجرة حسابات قياسيّة وفق IFRS. أضف حسابات مخصّصة، وعدِّل التصنيفات حسب طبيعة نشاطك." },
