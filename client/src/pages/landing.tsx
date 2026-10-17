@@ -97,7 +97,7 @@ function getCopy(locale: Locale) {
     trust: {
       eyebrow: ar ? "البنية التي تحتها" : "What's underneath",
       headline: ar ? "ليست ادّعاءً." : "Not a claim.",
-      sub1: ar ? "بنية مُعتمدة، وأطر تنظيميّة محسومة، وأرقام تشغيليّة قابلة للقياس." : "Audited posture, settled regulatory frames, and operating numbers you can measure.",
+      sub1: ar ? "بنية مبنيّة على معايير IFRS، وضوابط هندسيّة فعليّة في الكود، لا ادّعاءات." : "An IFRS-grounded foundation and real engineering controls in the code — not claims.",
       sub2: ar ? "" : "",
       sub3: ar ? "" : "",
       pillars: ar ? [
