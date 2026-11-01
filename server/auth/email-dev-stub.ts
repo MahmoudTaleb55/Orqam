@@ -20,7 +20,7 @@
  * production bundle.
  *
  * The state itself is held under a process-wide
- * `Symbol.for("tahasab.auth.email.testStub")` so that `sendEmail` in
+ * `Symbol.for("orqam.auth.email.testStub")` so that `sendEmail` in
  * `server/auth/email.ts` can read it WITHOUT importing this module.
  * That keeps the production read-path inert: with no setter ever
  * called, the global slot is `undefined` and `sendEmail` falls through
@@ -40,7 +40,7 @@ export type EmailTestStub = {
  * stub is never loaded the read is harmless (returns `null`).
  */
 export const EMAIL_TEST_STUB_KEY = Symbol.for(
-  "tahasab.auth.email.testStub",
+  "orqam.auth.email.testStub",
 );
 
 type GlobalSlot = { [EMAIL_TEST_STUB_KEY]?: EmailTestStub | null };

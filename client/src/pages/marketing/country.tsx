@@ -179,7 +179,7 @@ export function CountryPage({ countryCode }: { countryCode: string }) {
     <MarketingLayout>
       <MarketingHero
         eyebrow={cfg.flagEm + " " + (ar ? cfg.nameAr : cfg.nameEn)}
-        title={ar ? `محاسب ذكي في ${cfg.nameAr}` : `Smart Accountant for ${cfg.nameEn}`}
+        title={ar ? `أرقام في ${cfg.nameAr}` : `Orqam for ${cfg.nameEn}`}
         subtitle={ar ? cfg.subtitleAr : cfg.subtitleEn}
       />
 

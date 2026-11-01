@@ -8,11 +8,11 @@ export default function TermsPage() {
   const sections = ar ? [
     {
       title: "١. قبول الشروط",
-      body: "باستخدام منصّة محاسب ذكي أو التسجيل فيها، فإنّك توافق على هذه الشروط وسياسة الخصوصيّة. إن كنت تمثّل شركة، فأنت تؤكّد صلاحيّتك للتعاقد باسمها.",
+      body: "باستخدام منصّة أرقام أو التسجيل فيها، فإنّك توافق على هذه الشروط وسياسة الخصوصيّة. إن كنت تمثّل شركة، فأنت تؤكّد صلاحيّتك للتعاقد باسمها.",
     },
     {
       title: "٢. طبيعة الخدمة",
-      body: "محاسب ذكي منصّة برمجيّة (SaaS) لإدارة الشؤون الماليّة. المنصّة أداة مساعدة ولا تُعدّ استشارةً ضريبيّةً أو قانونيّةً أو محاسبيّةً. للحصول على استشارة مهنيّة، يُرجى التواصل مع محاسب أو مستشار قانونيّ مرخَّص.",
+      body: "أرقام منصّة برمجيّة (SaaS) لإدارة الشؤون الماليّة. المنصّة أداة مساعدة ولا تُعدّ استشارةً ضريبيّةً أو قانونيّةً أو محاسبيّةً. للحصول على استشارة مهنيّة، يُرجى التواصل مع محاسب أو مستشار قانونيّ مرخَّص.",
     },
     {
       title: "٣. حساب المستخدم",
@@ -45,11 +45,11 @@ export default function TermsPage() {
   ] : [
     {
       title: "1. Acceptance of terms",
-      body: "By using or registering on the Smart Accountant platform, you agree to these terms and the Privacy Policy. If you represent a company, you confirm your authority to contract on its behalf.",
+      body: "By using or registering on the Orqam platform, you agree to these terms and the Privacy Policy. If you represent a company, you confirm your authority to contract on its behalf.",
     },
     {
       title: "2. Nature of the service",
-      body: "Smart Accountant is a software-as-a-service (SaaS) platform for financial management. The platform is an assistive tool and does not constitute tax, legal, or accounting advice. For professional advice, please consult a licensed accountant or legal advisor.",
+      body: "Orqam is a software-as-a-service (SaaS) platform for financial management. The platform is an assistive tool and does not constitute tax, legal, or accounting advice. For professional advice, please consult a licensed accountant or legal advisor.",
     },
     {
       title: "3. User account",

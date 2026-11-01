@@ -22,7 +22,7 @@ export type SendEmailResult =
 
 export type EmailLocale = "ar" | "en";
 
-const DEFAULT_FROM = "Tahasab <onboarding@resend.dev>";
+const DEFAULT_FROM = "Orqam <onboarding@resend.dev>";
 
 function getFrom(): string {
   return process.env.EMAIL_FROM?.trim() || DEFAULT_FROM;
@@ -56,7 +56,7 @@ type EmailTestStub = {
   failAddresses: Set<string>;
 };
 
-const EMAIL_TEST_STUB_KEY = Symbol.for("tahasab.auth.email.testStub");
+const EMAIL_TEST_STUB_KEY = Symbol.for("orqam.auth.email.testStub");
 
 type EmailTestStubGlobalSlot = {
   [EMAIL_TEST_STUB_KEY]?: EmailTestStub | null;
@@ -128,7 +128,7 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
 
 // ---------- branded templates ----------
 
-const BRAND = "Tahasab";
+const BRAND = "Orqam";
 const BRAND_COLOR = "#0f766e"; // teal-700
 
 function escapeHtml(s: string): string {

@@ -1,5 +1,7 @@
 # Orqam (أرقام)
 
+> Course DLBCSPJWD01 (IU) | Author: Mahmoud Taleb | Repository: https://github.com/MahmoudTaleb55/Orqam
+
 **A full-stack, multi-tenant ERP prototype for accounting and business operations, built for Arabic-speaking and MULTI-region businesses — with first-class global support.**
 
 Orqam ("numbers" in Arabic) is a double-entry accounting and business-operations platform: IFRS-aligned books, sales & purchases, inventory, banking, HR & payroll, fixed assets, reporting, an AI assistant, and document/receipt processing — all under strict per-company (workspace) isolation.
@@ -16,20 +18,24 @@ Orqam ("numbers" in Arabic) is a double-entry accounting and business-operations
 - [Workspace isolation (defense in depth)](#workspace-isolation-defense-in-depth)
 - [Getting started](#getting-started)
 - [Environment variables](#environment-variables)
+- [Where your data lives](#where-your-data-lives)
+- [Adding a country localization pack](#adding-a-country-localization-pack)
 - [Scripts](#scripts)
 - [Testing](#testing)
 - [Security posture](#security-posture)
 - [Project layout](#project-layout)
+- [Screenshots](#screenshots)
 - [Status & roadmap](#status--roadmap)
+- [License](#license)
 
 ---
 
 ## Highlights
 
 - **Double-entry accounting** — chart of accounts, journal entries, IFRS-oriented statements. Postings are balanced and committed atomically (the bank-transaction → journal-entry write is a single database transaction).
-- **Business operations** — Sales (customers, invoices, receipts, AR aging), Purchases (vendors, bills, AP payments, AP aging), Inventory (items, locations, valuation), Banking, HR & Payroll (attendance, leave, payroll runs), Fixed Assets (depreciation, impairment, revaluation, disposal).
+- **Business operations** — Sales (customers, invoices, receipts, AR aging), Purchases (vendors, bills, AP payments, AP aging), Inventory (items, categories, locations, valuation; items and categories can be deleted, and items already in use are protected from deletion), Banking, HR & Payroll (attendance, leave, payroll runs), Fixed Assets (depreciation, impairment, revaluation, disposal).
 - **Multi-tenant by design** — every workspace's data is isolated at the database layer (PostgreSQL row-level security) in addition to route-level authorization and composite foreign keys.
-- **Localization** — the entire in-app UI is fully translated across **English, Arabic, German, and French**, with direction following the locale (RTL for Arabic, LTR otherwise). English is the default; any locale is user-selectable and switches every label, dialog, table, and message. Per-country business packs (tax rate, weekend days, leave, social-insurance, end-of-service) for MENA (SA, AE, EG, KW, QA, JO) **and** global markets (US, UK, DE, FR, IN).
+- **Localization** — the entire in-app UI is fully translated across **English, Arabic, German, and French**, with direction following the locale (RTL for Arabic, LTR otherwise). English is the default; any locale is user-selectable and switches every label, dialog, table, and message. Per-country business packs (tax rate, weekend days, leave, social-insurance, end-of-service) for MENA (SA, AE, EG, KW, QA, JO) **and** global markets (INTL, US, GB, DE, FR, IN), 12 packs in total (code GB is the United Kingdom).
 - **AI assistant** — natural-language accounting actions, receipt/invoice vision extraction, and document generation (server-side only; API keys never reach the browser).
 - **Private object storage** — documents and avatars live in a private S3 bucket (server-side encryption, no public access); protected downloads are proxied through the authenticated backend.
 
@@ -73,14 +79,24 @@ Full design rationale: [`docs/design/workspace-isolation-defense-in-depth.md`](d
 
 ## Getting started
 
-**Prerequisites:** Node.js 20+, a PostgreSQL database (local, or hosted such as Supabase or Neon). For a hosted provider that offers connection pooling, use the **session-mode** pooler (or a direct connection) — not a transaction-mode pooler — because the per-request workspace scoping relies on session-level settings persisting on one connection. Choose a database region close to your users; a distant region adds latency to every request. **Object storage (AWS S3 or any S3-compatible service) is optional** — without it, uploaded documents/avatars fall back to local disk (suitable for development; for production or multi-instance deployments, configure your own private S3 bucket). OpenAI and OAuth credentials are also optional — those features simply stay dormant when unconfigured.
+**Prerequisites:** Node.js 20+, a PostgreSQL database (local, or hosted such as Supabase or Neon). The `DATABASE_URL` user must be able to `CREATE ROLE` / `GRANT` (migration 0008 creates the `app_api` role automatically; a local superuser or the Supabase `postgres` user works). For a hosted provider that offers connection pooling, use the **session-mode** pooler (or a direct connection) — not a transaction-mode pooler — because the per-request workspace scoping relies on session-level settings persisting on one connection. Choose a database region close to your users; a distant region adds latency to every request. **Object storage (AWS S3 or any S3-compatible service) is optional** — without it, uploaded documents/avatars fall back to local disk (suitable for development; for production or multi-instance deployments, configure your own private S3 bucket). OpenAI and OAuth credentials are also optional — those features simply stay dormant when unconfigured.
+
+Local Postgres quick start (Docker):
 
 ```bash
-# 1. Install dependencies
+docker run --name orqam-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=orqam -p 5432:5432 -d postgres:16
+# then in .env: DATABASE_URL=postgresql://postgres:postgres@localhost:5432/orqam
+```
+
+```bash
+# 1. Clone and install dependencies
+git clone https://github.com/MahmoudTaleb55/Orqam.git
+cd Orqam
 npm install
 
 # 2. Configure environment
-cp .env.example .env
+cp .env.example .env              # macOS/Linux
+# Copy-Item .env.example .env   # Windows PowerShell
 #    Then edit .env — at minimum set DATABASE_URL and SESSION_SECRET (see below).
 
 # 3. Create the database schema
@@ -90,7 +106,11 @@ npm run db:push
 npm run dev            # serves API + client on http://localhost:5000
 ```
 
-On first boot the server applies all SQL migrations, installs the RLS policies, and seeds the IFRS chart of accounts.
+On boot the server applies all SQL migrations and installs the RLS policies.
+
+**First use:** open http://localhost:5000, choose **Sign up**, create an account, then create a workspace (company). The IFRS chart of accounts is seeded when the first workspace is created. There are no demo credentials.
+
+> For local development, S3 should be off: leave `OBJECT_STORAGE_PROVIDER` and `AWS_S3_BUCKET` empty in `.env` (the shipped `.env.example` does) and uploads are stored on local disk under `uploads/`.
 
 ## Environment variables
 
@@ -106,9 +126,19 @@ On first boot the server applies all SQL migrations, installs the RLS policies, 
 | Variable | Enables |
 |---|---|
 | `OPENAI_API_KEY`, `OPENAI_BASE_URL` | AI assistant, receipt/document extraction. Server-side only. |
+| `AI_CHAT_MODEL` | Chat model (default `gpt-4o`). |
+| `AI_VISION_MODEL` | Receipt/document vision extraction model (default `gpt-4o`). |
+| `AI_IMAGE_MODEL` | Image generation model (default `gpt-image-1`). |
+| `AI_TRANSCRIBE_MODEL` | Audio transcription model (default `gpt-4o-mini-transcribe`). |
+| `AI_TTS_MODEL` | Text-to-speech model (default `gpt-4o-mini-tts`). |
+| `DB_POOL_MAX`, `DB_SESSION_POOL_MAX` | Sizes of the request-scoped and session-store connection pools (defaults 8 and 4). Their sum must stay below your database/pooler connection limit. |
+| `DB_ACQUIRE_TIMEOUT_MS` | Milliseconds to wait for a pooled connection (default 10000). |
+| `RESEND_API_KEY`, `EMAIL_FROM` | Outbound email (password reset, invitations). Without `RESEND_API_KEY` no emails are sent; invitations can still be shared via copy-link in Settings > Members. |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | "Continue with Google" SSO. Buttons appear only when configured. |
 | `MICROSOFT_CLIENT_ID` / `MICROSOFT_CLIENT_SECRET` | "Continue with Microsoft" SSO. |
-| `OBJECT_STORAGE_PROVIDER=s3`, `AWS_REGION`, `AWS_S3_BUCKET` | S3 document/avatar storage. Without it, files fall back to local disk (development only). |
+| `OBJECT_STORAGE_PROVIDER=s3`, `AWS_REGION`, `AWS_S3_BUCKET` | S3 document/avatar storage. Without it, files fall back to local disk (development only). For local dev, clear `OBJECT_STORAGE_PROVIDER` and `AWS_S3_BUCKET`. |
+| `AWS_S3_ENDPOINT` | Custom endpoint for S3-compatible services (e.g. MinIO). Leave blank for Amazon S3. |
+| `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN` | Static AWS credentials. Prefer an IAM role or the standard AWS credential chain. |
 | `APP_URL` / `PUBLIC_APP_URL` | Public base URL used to build links in outbound emails (reset/invite). |
 
 Credentials live only in `.env` (git-ignored). In production, prefer an AWS IAM role or the standard AWS credential chain over static access keys, and inject secrets via the deployment platform rather than a committed file. **Never** place secrets in `VITE_`-prefixed variables — those are exposed to the browser.
@@ -153,8 +183,12 @@ No schema change or migration is needed — the settings UI reads the pack list 
 
 ## Testing
 
+> **Warning:** the DB-backed Vitest suites and the Playwright suite write real rows to the database in `DATABASE_URL`. Run them only against a throwaway database, never your real data.
+
 - **Unit & integration (Vitest):** pure-logic tests plus database- and S3-backed integration tests that run against real services. The DB/S3 tests skip cleanly when `DATABASE_URL` / S3 are not configured, so the suite stays green in any environment. They run serially (`fileParallelism: false`) because they share one database and rely on connection-scoped settings.
-- **End-to-end (Playwright):** 300+ specs covering auth, role-based access, workspace isolation, reporting, and UI behavior across locales.
+- **End-to-end (Playwright):** run `npx playwright install` once; the suite starts the dev server itself (set `PLAYWRIGHT_NO_WEBSERVER` to reuse a server you already started). `npx playwright test --list` currently lists 371 tests in 92 spec files, covering auth, role-based access, workspace isolation, reporting, and UI behavior across locales.
+
+`node ./node_modules/vitest/vitest.mjs list` currently lists 264 tests in 33 files.
 
 Notable integration tests: bank-transaction journal atomicity, cross-workspace isolation (RLS proof), session revocation, and S3 document/avatar round-trips under a least-privilege IAM user.
 
@@ -170,7 +204,7 @@ Implemented and verifiable today:
 - OAuth: provider email must be verified; an OAuth login cannot silently take over a pre-existing password account; outbound email links are built from a trusted base URL (not the request `Host` header).
 - Server-side-only handling of all API keys and credentials.
 
-Honest limitations (not yet implemented): no CSRF token layer or Content-Security-Policy yet; no two-factor authentication; no managed encryption-at-rest beyond S3 defaults; no third-party security certification. See `.security-agent/` for the latest automated scan findings and remediation status.
+Honest limitations (not yet implemented): no CSRF token layer or Content-Security-Policy yet; no two-factor authentication; no managed encryption-at-rest beyond S3 defaults; no third-party security certification.
 
 ## Project layout
 
@@ -181,19 +215,38 @@ server/            Express app
   storage.ts         data-access layer (IStorage)
   db.ts              Drizzle + request-scoped workspace client
   auth/              local auth, membership middleware, email
-  ai/                OAuth (OIDC), object storage (S3), chat/image
+  ai/                OAuth (OIDC), object storage (S3), chat/image, audio, batch
   services/          document & avatar storage, extraction, PDF
 shared/            schema.ts, routes.ts, localization packs (contracts shared by client + server)
 migrations/        checked-in SQL migrations (applied in order on boot)
 tests/e2e/         Playwright specs
 docs/design/       architecture decision records
+script/            build script (npm run build)
+scripts/           pre-commit and migration check scripts
+docs/              design documents
+uploads/           runtime local-disk uploads (created when S3 is off)
 ```
 
 ## Status & roadmap
 
-**Done:** independent of its original scaffolding platform; multi-tenant with RLS; full four-language localization (English/Arabic/German/French) across the entire in-app UI; S3 document/avatar storage; OAuth (Google/Microsoft); accounting-integrity guards (atomic postings, over-application and disposed-asset guards, journal/subledger reversal integrity); automated security scanning with the high-severity findings and a batch of medium/low findings remediated; connection-pool model tuned to stay resilient on a hosted/connection-limited Postgres; vendor + route code-splitting for load performance.
+**Done:** multi-tenant with RLS; full four-language localization (English/Arabic/German/French) across the entire in-app UI; S3 document/avatar storage; OAuth (Google/Microsoft); accounting-integrity guards (atomic postings, over-application and disposed-asset guards, journal/subledger reversal integrity); automated security scanning with the high-severity findings and a batch of medium/low findings remediated; connection-pool model tuned to stay resilient on a hosted/connection-limited Postgres; vendor + route code-splitting for load performance.
 
 **Roadmap:** CSRF/CSP hardening; two-factor authentication; remaining low-severity security findings; localization of the public marketing pages (the in-app product is fully localized); real bank-feed integration via an Open Banking aggregator (today's banking module is manual entry); expanded automated test coverage.
+
+---
+
+## Screenshots
+
+No screenshots are committed yet. Screens worth capturing:
+
+- Dashboard (English)
+- Invoice creation / sales view
+- Arabic RTL view
+- AI assistant
+
+## License
+
+MIT. See [LICENSE](LICENSE).
 
 ---
 

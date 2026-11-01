@@ -21,7 +21,7 @@ import { useAuth } from "@/hooks/use-auth"
 import { usePublicCurrency } from "@/lib/public-currency"
 
 /* ============================================================================
-   Landing page — محاسب ذكي / Smart Accountant
+   Landing page — أرقام / Orqam
    Bilingual (AR/EN), direction-aware. Built on Phase 1 design system.
    ========================================================================== */
 
@@ -73,7 +73,7 @@ function getCopy(locale: Locale) {
         { f: "🇶🇦", n: ar ? "قطر"        : "Qatar" },
         { f: "🇯🇴", n: ar ? "الأردن"     : "Jordan" },
       ],
-      mockTitle: ar ? "cockpit · محاسب ذكي" : "cockpit · Smart Accountant",
+      mockTitle: ar ? "cockpit · أرقام" : "cockpit · Orqam",
       chipAuto: { t: ar ? "قيد سُجِّل تلقائيّاً" : "Entry auto-posted", s: ar ? "فاتورة كهرباء · $١٥٠" : "Electricity invoice · $150" },
       chipProfit: { t: ar ? "هامش الربح ↑ ١٢٪" : "Profit margin ↑ 12%", s: ar ? "هذا الربع" : "Current quarter" },
       kpis: {
@@ -119,15 +119,15 @@ function getCopy(locale: Locale) {
       ],
     },
     why: {
-      eyebrow: ar ? "لماذا محاسب ذكي" : "Why Smart Accountant",
+      eyebrow: ar ? "لماذا أرقام" : "Why Orqam",
       title1: ar ? "المحاسبة لم تتغيّر منذ خمسين عاماً." : "Accounting hasn't changed in fifty years.",
       title2: ar ? "حتى الآن." : "Until now.",
       lead: ar
         ? "معظم برامج المحاسبة مجرّد دفتر إلكترونيّ: تكتب فيه ما كنت ستكتبه على الورق. نحن بدأنا من سؤال آخر — ماذا لو فَهِمَ النظام معاملاتك، وسجّل قيودك بنفسه، وأخبرك بما ينبغي فعله غداً؟"
         : "Most accounting software is just a digital ledger: you type what you'd otherwise write on paper. We started from a different question — what if the system understood your transactions, posted the entries for you, and told you what to do tomorrow?",
       sub: ar
-        ? "الجواب هو محاسب ذكي: نظام محاسبيّ متكامل وفق IFRS، يعمل فيه الذكاء الاصطناعيّ من الأساس — لا كإضافة سطحيّة."
-        : "The answer is Smart Accountant: a complete IFRS-compliant accounting system with an AI layer that works from the roots — not bolted on top.",
+        ? "الجواب هو أرقام: نظام محاسبيّ متكامل وفق IFRS، يعمل فيه الذكاء الاصطناعيّ من الأساس — لا كإضافة سطحيّة."
+        : "The answer is Orqam: a complete IFRS-compliant accounting system with an AI layer that works from the roots — not bolted on top.",
       principles: ar ? [
         { n: "01", t: "ذكاء حقيقيّ، لا مجرّد واجهة", b: "الذكاء الاصطناعيّ هنا ليس ميزة مضافة، بل قلب النظام. يقرأ الفاتورة، يصنّفها، يقترح القيد الصحيح وفق IFRS، ويتعلّم من تعديلاتك. تكتب «دفعت ١٢٠ للمورّد»، فيكتمل القيد بنفسه." },
         { n: "02", t: "عالميّ بعمق، دوليّ بمعيار", b: "ضريبة القيمة المضافة، التأمينات الاجتماعيّة، مكافأة نهاية الخدمة، تعدّد العملات والتقويمات — جاهزة في أكثر من ثلاثين دولة. والأساس دائماً IFRS، فدفاترك يقرأها المدقّق في الرياض والمستثمر في لندن والمدير في فرانكفورت بالمنطق نفسه." },
@@ -220,7 +220,7 @@ function getCopy(locale: Locale) {
         ["Full transparency", "Every suggestion is sourced: account, IFRS standard, or company policy."],
       ],
       cta: ar ? "جرّب المساعد" : "Try the assistant",
-      mockTitle: ar ? "assistant · محاسب ذكي" : "assistant · Smart Accountant",
+      mockTitle: ar ? "assistant · أرقام" : "assistant · Orqam",
       chat: {
         u1: ar
           ? "أرفقت فاتورة كهرباء بـ $٤٥٠. سجّلها، وقل لي أين نقف من ميزانيّة المرافق."
@@ -242,7 +242,7 @@ function getCopy(locale: Locale) {
       lead: ar
         ? "كلّ ما يجري في ماليّة شركتك — واضح، مفهوم، جاهز للقرار في ثوانٍ."
         : "Everything happening in your finances — visible, understood, decision-ready in seconds.",
-      mockTitle: ar ? "cockpit · محاسب ذكي · Default Company" : "cockpit · Smart Accountant · Default Company",
+      mockTitle: ar ? "cockpit · أرقام · Default Company" : "cockpit · Orqam · Default Company",
       sidebar: ar
         ? ["الرئيسيّة", "المعاملات", "القيود", "التقارير", "مركز القرار", "الموارد البشريّة", "الأصول", "الإعدادات"]
         : ["Home", "Transactions", "Entries", "Reports", "Cockpit", "HR", "Assets", "Settings"],
@@ -535,7 +535,7 @@ function getCopy(locale: Locale) {
         : "From the moment an invoice hits your inbox to its impact showing up in your reports — not one manual step in between.",
       beforeTitle: ar ? "اليوم بدون النظام" : "Your day without the system",
       beforeSub:   ar ? "خمس خطوات يدويّة، يوم ونصف انتظار" : "Five manual steps. A day-and-a-half of waiting.",
-      afterTitle:  ar ? "اليوم مع محاسب ذكي" : "Your day with Smart Accountant",
+      afterTitle:  ar ? "اليوم مع أرقام" : "Your day with Orqam",
       afterSub:    ar ? "خطوة واحدة منك، الباقي يحدث وحده" : "One step from you. The rest just happens.",
       totalLabel:  ar ? "الإجمالي" : "Total",
       manualTotal: ar ? "≈ ١٣ ساعة في الأسبوع" : "≈ 13 hrs / week",
@@ -595,7 +595,7 @@ function getCopy(locale: Locale) {
       ],
     },
     useCases: {
-      eyebrow: ar ? "من يستخدم محاسب ذكي" : "Who uses Smart Accountant",
+      eyebrow: ar ? "من يستخدم أرقام" : "Who uses Orqam",
       title: ar ? "منتج واحد. ثلاث فرق. نتيجة واحدة: الوضوح." : "One product. Three teams. One outcome: clarity.",
       tabsAria: ar ? "فئات المستخدمين" : "User segments",
       outcomes: ar ? "النتائج" : "Outcomes",
@@ -836,7 +836,7 @@ function getCopy(locale: Locale) {
       footnote: ar
         ? "لذلك بنينا منصّةً لا تعدّ لك فحسب — بل تُفكّر معك."
         : "That is why we built a platform that doesn't just count — it thinks with you.",
-      sig: ar ? "محاسب ذكي · فريق التأسيس" : "Smart Accountant · founding team",
+      sig: ar ? "أرقام · فريق التأسيس" : "Orqam · founding team",
     },
     productTour: {
       eyebrow: ar ? "داخل المنتج" : "Inside the product",

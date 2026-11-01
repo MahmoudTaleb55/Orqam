@@ -12,7 +12,7 @@ import { useLocale } from "@/contexts/locale-context";
 const COPY = {
   ar: {
     eyebrow: "احجز عرضاً مباشراً",
-    title: "اعرض محاسب ذكي على فريقك المالي.",
+    title: "اعرض أرقام على فريقك المالي.",
     sub: "خصصنا 30 دقيقة لنريك كيف تُسجَّل القيود تلقائياً، كيف يقفل الشهر بنفسه، وكيف يبدو ملف ZATCA الجاهز.",
     name: "الاسم الكامل",
     email: "البريد المهني",
@@ -92,7 +92,7 @@ export default function DemoPage() {
     e.preventDefault();
     // Stub: open mailto with prefilled body. No backend dependency.
     const subject = encodeURIComponent(
-      locale === "ar" ? "طلب عرض — محاسب ذكي" : "Demo request — Accounting Platform"
+      locale === "ar" ? "طلب عرض — أرقام" : "Demo request — Accounting Platform"
     );
     const body = encodeURIComponent(
       `${t.name}: ${form.name}\n${t.email}: ${form.email}\n${t.company}: ${form.company}\n${t.employees}: ${form.employees}\n\n${t.notes}:\n${form.notes}`
